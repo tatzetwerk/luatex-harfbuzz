@@ -1,0 +1,22 @@
+\def\harfbuzzswig#1{%
+	\directlua{%
+		hb_location = "#1"%
+		hb = dofile(resolvers.find_file("harfbuzz-swig.lua","tex"))%
+		dofile(resolvers.find_file("font-hb.lua","tex"))%
+	}%
+}%
+\def\harfbuzzswigdj#1{%	alternative binding by means of "luaharfbuzz" (Lua bindings for Harfbuzz by Deepak Jois: https://github.com/deepakjois/luaharfbuzz)
+	\directlua{%
+		hb_location = "#1"%
+		hb = dofile(resolvers.find_file("util-lib-modified.lua","tex"))%	(required because name of luaharfbuzz.so is not core.so)
+		hb = dofile(resolvers.find_file("harfbuzz-swig-dj.lua","tex"))%
+		dofile(resolvers.find_file("font-hb.lua","tex"))%
+	}%
+}%
+\def\harfbuzzffi#1{%	alternative binding without SwigLib by means of FFI (this requires luajittex instead of luatex)
+	\directlua{%
+		hb_location = "#1"%
+		hb = dofile(resolvers.find_file("harfbuzz-ffi.lua","tex"))%
+		dofile(resolvers.find_file("font-hb.lua","tex"))%
+	}%
+}%

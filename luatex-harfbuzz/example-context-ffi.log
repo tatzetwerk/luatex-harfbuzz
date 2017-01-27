@@ -1,0 +1,100 @@
+open source     > 1 > 1 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv
+
+ConTeXt  ver: 2016.05.17 19:20 MKIV current  fmt: 2017.1.27  int: english/english
+
+system          > 'cont-new.mkiv' loaded
+open source     > 2 > 2 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-new.mkiv
+close source    > 2 > 2 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-new.mkiv
+system          > files > jobname 'example-context-ffi', input './example-context-ffi', result 'example-context-ffi'
+fonts           > latin modern fonts are not preloaded
+languages       > language 'en' is active
+open source     > 2 > 3 > /Users/admin/Desktop/TeX/example-context-ffi.tex
+open source     > 3 > 4 > context-harfbuzz.tex
+close source    > 3 > 4 > context-harfbuzz.tex
+system          > callbacks > not registering frozen 'hpack_filter'
+fonts           > preloading latin modern fonts (second stage)
+fonts           > 'fallback modern-designsize rm 12pt' is loaded
+open source     > 3 > 5 > example-text.tex
+otf             > devanagari > adding devanagari features to font
+backend         > xmp > using file '/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml'
+pages           > flushing realpage 1, userpage 1
+pages           > flushing realpage 2, userpage 2
+close source    > 3 > 5 > example-text.tex
+pages           > flushing realpage 3, userpage 3
+close source    > 2 > 5 > /Users/admin/Desktop/TeX/example-context-ffi.tex
+close source    > 1 > 5 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv
+
+system          > structure > start used structure
+
+used structure  > text: example-context-ffi
+
+system          > structure > stop used structure
+
+
+system          > files > start used files
+
+used file       >    1: filename=cont-yes.mkiv filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv usedmethod=database
+used file       >    2: filename=publ-imp-default.lua filetype=lua foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/publ-imp-default.lua usedmethod=database
+used file       >    3: filename=cont-new.mkiv filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-new.mkiv usedmethod=database
+used file       >    4: filename=lang-us.lua filetype=lua foundname=/usr/local/texlive/2016/texmf-dist/tex/context/patterns/mkiv/lang-us.lua usedmethod=database
+used file       >    5: filename=/Users/admin/Desktop/TeX/example-context-ffi foundname=/Users/admin/Desktop/TeX/example-context-ffi.tex usedmethod=qualified
+used file       >    6: filename=context-harfbuzz filetype=tex foundname=context-harfbuzz.tex usedmethod=filesystem
+used file       >    7: filename=harfbuzz-ffi.lua format=tex foundname=harfbuzz-ffi.lua usedmethod=direct
+used file       >    8: filename=font-hb.lua format=tex foundname=font-hb.lua usedmethod=direct
+used file       >    9: filename=lm.lfg filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/fonts/mkiv/lm.lfg usedmethod=database
+used file       >   10: filename=lmroman12-regular filetype=otf format=otf foundname=/usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf usedmethod=database
+used file       >   11: filename=latinmodern-math.otf filetype=opentypefonts foundname=/usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf usedmethod=database
+used file       >   12: filename=example-text filetype=tex foundname=example-text.tex usedmethod=filesystem
+used file       >   13: filename=GentiumPlus-R.ttf format=ttf foundname=GentiumPlus-R.ttf usedmethod=direct
+used file       >   14: filename=texgyretermes-regular.otf format=otf foundname=texgyretermes-regular.otf usedmethod=direct
+used file       >   15: filename=amiri-regular.ttf format=ttf foundname=amiri-regular.ttf usedmethod=direct
+used file       >   16: filename=SyrCOMBatnan.otf format=otf foundname=SyrCOMBatnan.otf usedmethod=direct
+used file       >   17: filename=chandas.ttf format=ttf foundname=chandas.ttf usedmethod=direct
+used file       >   18: filename=lpdf-pdx.xml filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml usedmethod=database
+
+system          > files > stop used files
+
+
+system          > options > start commandline options
+
+used option     > currentrun="3"
+used option     > engine="luajittex"
+used option     > fulljobname="./example-context-ffi"
+used option     > input="./example-context-ffi"
+used option     > kindofrun="2"
+used option     > maxnofruns="9"
+used option     > no-parse-first-line="true"
+used option     > redirected="true"
+
+system          > options > stop commandline options
+
+system          > options > start commandline files
+
+used file       >    1: ./example-context-ffi
+
+system          > options > stop commandline files
+
+
+mkiv lua stats  > used config file: selfautoparent:/texmfcnf.lua;selfautoparent:/texmf-dist/web2c/texmfcnf.lua
+mkiv lua stats  > used cache path: readable+writable: '/Users/admin/Library/texlive/2016/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9'
+mkiv lua stats  > resource resolver: loadtime 0.171 seconds, 0 scans with scantime 0.000 seconds, 0 shared scans, 18 found files, scanned paths: <none>
+mkiv lua stats  > stored bytecode data: 387 modules (0.443 sec), 82 tables (0.013 sec), 469 chunks (0.456 sec)
+mkiv lua stats  > traced context: maxstack: 1175, freed: 0, unreachable: 1175
+mkiv lua stats  > cleaned up reserved nodes: 47 nodes, 9 lists of 444
+mkiv lua stats  > node memory usage: 11 glue, 2 penalty, 28 attribute, 38 glue_spec, 10 attribute_list, 2 temp
+mkiv lua stats  > node list callback tasks: 6 unique task lists, 5 instances (re)created, 214 calls
+mkiv lua stats  > h-node processing time: 0.075 seconds including kernel
+mkiv lua stats  > used backend: pdf (backend for directly generating pdf output)
+mkiv lua stats  > jobdata time: 0.001 seconds saving, 0.000 seconds loading
+mkiv lua stats  > callbacks: 499 direct, 387 indirect, 886 total
+mkiv lua stats  > randomizer: resumed with value 0.32435001275851
+mkiv lua stats  > loaded patterns: en::2, load time: 0.000
+mkiv lua stats  > result saved in file: example-context-ffi.pdf, compresslevel 3, objectcompresslevel 3
+mkiv lua stats  > loaded fonts: 7 files: latinmodern-math.otf, lmroman12-regular.otf, amiri-regular.ttf, chandas.ttf, gentiumplus-r.ttf, syrcombatnan.otf, texgyretermes-regular.otf
+mkiv lua stats  > font engine: otf 3.020, afm 1.512, tfm 1.000, 17 instances, 8 shared in backend, 8 common vectors, 0 common hashes, load time 0.735 seconds 
+mkiv lua stats  > used platform: osx-64, type: unix, binary subtree: bin
+mkiv lua stats  > luatex banner: this is luajittex, version 1.0.0 (tex live 2017/dev)
+mkiv lua stats  > control sequences: 43844 of 65536 + 100000
+mkiv lua stats  > lua properties: engine: luajit, used memory: 71 MB (ctx: 0 MB), hash type: lua51, hash chars: min(64,40), symbol mask: utf (τεχ)
+mkiv lua stats  > runtime: 1.763 seconds, 3 processed pages, 3 shipped pages, 1.702 pages/second
+

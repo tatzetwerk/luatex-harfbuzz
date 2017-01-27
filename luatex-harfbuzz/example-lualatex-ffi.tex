@@ -1,0 +1,13 @@
+\documentclass{article}
+\directlua{tex.luatexversion=99} % in order to circumpass wrong version check in luaotfload
+\usepackage{luaotfload}
+
+\input luatex-harfbuzz
+\harfbuzzffi{/usr/local/Cellar/harfbuzz/1.4.1/lib/libharfbuzz.0.dylib}
+
+\begin{document}
+
+\def\page{\vfill\eject}
+\input example-text
+
+\end{document}
