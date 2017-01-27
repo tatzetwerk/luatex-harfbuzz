@@ -74,13 +74,9 @@ luajittex example-luatex-ffi
 luajitlatex example-lualatex-ffi
 context --jit example-context-ffi
 ```
-Note that the ConTeXt OpenType engine engine is in constant development and that the version installed by means of MacTeX 2016 is not the most recent one. For a fair comparison between the ConTeXt OpenType engine and HarfBuzz, a recent beta version should be used.
-
-The ConTeXt OpenType engine can be updated by updating ConTeXt. For instructions, see the manual of [luatools]. (This manual is also helpful for tackling problems related to running ConTeXt.)
+Note that the ConTeXt OpenType engine is in constant development and that the version installed by means of MacTeX 2016 is not the most recent one. For a fair comparison between the ConTeXt OpenType engine and HarfBuzz, a recent beta version should be used. The ConTeXt OpenType engine can be updated by updating ConTeXt. For instructions, see the manual of [luatools]. (This manual is also helpful for tackling problems related to running ConTeXt.) Additionaly, for LuaLaTeX the luaotfload package can be updated, for instance by means of the [TeX Live Utility].
 
 [luatools]:http://www.pragma-ade.com/general/manuals/tools-mkiv.pdf
-
-Additionaly, for LuaLaTeX the luaotfload package can be updated, for instance by means of the [TeX Live Utility].
 
 [TeX Live Utility]:http://tex.stackexchange.com/questions/55437/how-do-i-update-my-tex-distribution/55438#55438
 
