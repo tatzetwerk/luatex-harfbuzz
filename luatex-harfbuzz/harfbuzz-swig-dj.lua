@@ -37,8 +37,8 @@ hb.shape = function(font, buf, options)
 
   -- Apply options to buffer if they are set.
   if options.language then buf:set_language(options.language) end
-  if options.script then buf:set_script(options.script) end
-  if options.direction then buf:set_direction(options.direction) end
+  if options.script then buf:set_script(hb.Script.new(options.script)) end
+  if options.direction then buf:set_direction(hb.Direction.new(options.direction)) end
 
   -- Guess segment properties, in case all steps above have failed
   -- to set the right properties.

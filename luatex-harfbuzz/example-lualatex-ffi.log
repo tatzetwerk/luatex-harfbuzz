@@ -1,12 +1,44 @@
-This is LuajitTeX, Version 1.0.0 (TeX Live 2017/dev)  (format=luajitlatex 2017.1.18)  27 JAN 2017 13:58
- restricted system commands enabled.
+This is LuajitTeX, Version 1.0.4 (TeX Live 2017)  (format=luajitlatex 2017.8.7)  15 AUG 2017 09:53
+ system commands enabled.
 **example-lualatex-ffi
 (./example-lualatex-ffi.tex
-LaTeX2e <2016/03/31>
-Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
+LaTeX2e <2017-04-15>
+Lua module: luaotfload-main 2017/01/29 2.80001 OpenType layout system.
+Lua module: lualibs 2017-02-01 2.5 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2017-02-01 2.5 ConTeXt Lua libraries -- extended co
+llection.(using write cache: /Users/admin/Library/texlive/2017/texmf-var/luatex-
+cache/generic)(using read cache: /usr/local/texlive/2017/texmf-var/luatex-cache/
+generic /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic)
+luaotfload | conf : Root cache directory is /Users/admin/Library/texlive/2017/te
+xmf-var/luatex-cache/generic/names.
+luaotfload | init : Loading fontloader “fontloader-2017-02-11.lua” from kpse
+-resolved path “/usr/local/texlive/2017/texmf-dist/tex/luatex/luaotfload/fontl
+oader-2017-02-11.lua”.
+Lua-only attribute luaotfload@state = 1
+Lua-only attribute luaotfload@noligature = 2
+Lua-only attribute luaotfload@syllabe = 3
+luaotfload | init : Context OpenType loader version “3.027”
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 4
+luaotfload | conf : Root cache directory is /Users/admin/Library/texlive/2017/te
+xmf-var/luatex-cache/generic/names.
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
+.
+luaotfload | main : initialization completed in 0.170 seconds
+Babel <3.10> and hyphenation patterns for 1 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,46 +53,9 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/local/texlive/2016/texmf-dist/tex/luatex/luaotfload/luaotfload.sty
-Package: luaotfload 2016/06/16 v2.7 OpenType layout system
-Lua module: luaotfload-main 2016/06/16 2.70003 OpenType layout system.
-Lua module: lualibs 2016-04-06 2.4 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2016-04-06 2.4 ConTeXt Lua libraries -- extended co
-llection.(using write cache: /Users/admin/Library/texlive/2016/texmf-var/luatex-
-cache/generic)(using read cache: /usr/local/texlive/2016/texmf-var/luatex-cache/
-generic /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/generic)
-luaotfload | conf : Root cache directory is /Users/admin/Library/texlive/2016/te
-xmf-var/luatex-cache/generic/names.
-luaotfload | init : Loading fontloader “fontloader-2016-06-16.lua” from kpse
--resolved path “/usr/local/texlive/2016/texmf-dist/tex/luatex/luaotfload/fontl
-oader-2016-06-16.lua”.
-Lua-only attribute luaotfload@state = 1
-Lua-only attribute luaotfload@noligature = 2
-Lua-only attribute luaotfload@syllabe = 3
-luaotfload | init : Context OpenType loader version “3.023”
-Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
-Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
-Inserting `luaotfload.define_font' at position 1 in `define_font'.
-Lua-only attribute luaotfload_color_attribute = 4
-luaotfload | conf : Root cache directory is /Users/admin/Library/texlive/2016/te
-xmf-var/luatex-cache/generic/names.
-Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
-font'.
-Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
-_font'.
-Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
-t_unsafe'.
-Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
-'.
-Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
-.
-luaotfload | main : initialization completed in 0.194 seconds)
-(./luatex-harfbuzz.tex)
-Lua-only attribute luaotfload@hpack_dir = 5
-Inserting `luaotfload.harfbuzz' at position 2 in `hpack_filter'.
-No file example-lualatex-ffi.aux.
-
+(./luatex-harfbuzz.tex) (./example-lualatex-ffi.aux)
 \openout1 = example-lualatex-ffi.aux
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
@@ -75,59 +70,51 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-(./example-text.tex
+ (./example-text.tex
 luaotfload | db : Font names database loaded from /Users/admin/Library/texlive/2
-016/texmf-var/luatex-cache/generic/names/luaotfload-names.lua.gz(compiling luc: 
-/usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r.l
-ub)(load luc: /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/generic/f
-onts/otl/gentiumplus-r.lub)(save: /Users/admin/Library/texlive/2016/texmf-var/lu
-atex-cache/generic/fonts/otl/gentiumplus-r.lua)(save: /Users/admin/Library/texli
-ve/2016/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r.lub)(compiling lu
-c: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/texgyreterme
-s-regular.lub)(load luc: /Users/admin/Library/texlive/2016/texmf-var/luatex-cach
-e/generic/fonts/otl/texgyretermes-regular.lub)(save: /Users/admin/Library/texliv
-e/2016/texmf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.lua)(save:
- /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/texg
-yretermes-regular.lub)(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-c
-ache/generic/fonts/otl/amiri-regular.lub)(load luc: /Users/admin/Library/texlive
-/2016/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular.lub)(save: /Users/a
-dmin/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular
-.lua)(save: /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/generic/fon
-ts/otl/amiri-regular.lub)
+017/texmf-var/luatex-cache/generic/names/luaotfload-names.luc(load luc: /Users/a
+dmin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r
+.lub)(save: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fon
+ts/otl/gentiumplus-r.lua)(save: /Users/admin/Library/texlive/2017/texmf-var/luat
+ex-cache/generic/fonts/otl/gentiumplus-r.lub)(load luc: /Users/admin/Library/tex
+live/2017/texmf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.lub)(sa
+ve: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/t
+exgyretermes-regular.lua)(save: /Users/admin/Library/texlive/2017/texmf-var/luat
+ex-cache/generic/fonts/otl/texgyretermes-regular.lub)(load luc: /Users/admin/Lib
+rary/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular.lub)(sa
+ve: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/a
+miri-regular.lua)(save: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache
+/generic/fonts/otl/amiri-regular.lub)
 luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: "File not fou
-nd: SyrCOMBatnan.".(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cach
-e/generic/fonts/otl/syrcombatnan.lub)(load luc: /Users/admin/Library/texlive/201
-6/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lub)(save: /Users/admin/
-Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lua)(
-save: /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl
-/syrcombatnan.lub)
+nd: SyrCOMBatnan.".(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex
+-cache/generic/fonts/otl/syrcombatnan.lub)(save: /Users/admin/Library/texlive/20
+17/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lua)(save: /Users/admin
+/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lub)
 luaotfload | features : Support for the requested script: "deva" may be incomple
-te.(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/
-otl/chandas.lub)(load luc: /Users/admin/Library/texlive/2016/texmf-var/luatex-ca
-che/generic/fonts/otl/chandas.lub)(save: /Users/admin/Library/texlive/2016/texmf
--var/luatex-cache/generic/fonts/otl/chandas.lua)(save: /Users/admin/Library/texl
-ive/2016/texmf-var/luatex-cache/generic/fonts/otl/chandas.lub) [1
+te.(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/f
+onts/otl/chandas.lub)(save: /Users/admin/Library/texlive/2017/texmf-var/luatex-c
+ache/generic/fonts/otl/chandas.lua)(save: /Users/admin/Library/texlive/2017/texm
+f-var/luatex-cache/generic/fonts/otl/chandas.lub) [1
 
-{/Users/admin/Library/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-] [2])
-[3] (./example-lualatex-ffi.aux))
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]) [3
+] (./example-lualatex-ffi.aux))
 
 Here is how much of LuaTeX's memory you used:
- 263 strings out of 494966
+ 260 strings out of 494935
  100000,89155 words of node,token memory allocated
- 367 words of node memory still in use:
-   2 hlist, 1 vlist, 1 rule, 7 glue, 4 attribute, 40 glue_spec, 4 attribute_list
-, 1 write nodes
-   avail lists: 2:3533,3:21,4:22,5:100,6:2589,7:454,8:1,9:53,10:13,11:29
- 4006 multiletter control sequences out of 65536+600000
- 28 fonts using 8438559 bytes
+ 362 words of node memory still in use:
+   2 hlist, 1 vlist, 1 rule, 2 glue, 1 kern, 4 attribute, 45 glue_spec, 4 attrib
+ute_list, 1 write nodes
+   avail lists: 2:3535,3:21,4:22,5:111,6:2653,7:454,8:1,9:53,10:13,11:30
+ 4024 multiletter control sequences out of 65536+600000
+ 28 fonts using 8463439 bytes
  23i,4n,17p,8309b,121s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/local/texlive/2016/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes
--regular.otf><./chandas.ttf><./SyrCOMBatnan.otf></usr/local/texlive/2016/texmf-d
-ist/fonts/truetype/public/amiri/amiri-regular.ttf></usr/local/texlive/2016/texmf
+</usr/local/texlive/2017/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes
+-regular.otf><./chandas.ttf><./SyrCOMBatnan.otf></usr/local/texlive/2017/texmf-d
+ist/fonts/truetype/public/amiri/amiri-regular.ttf></usr/local/texlive/2017/texmf
 -dist/fonts/truetype/public/gentium-tug/GentiumPlus-R.ttf></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on example-lualatex-ffi.pdf (3 pages, 113366 bytes).
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on example-lualatex-ffi.pdf (3 pages, 114063 bytes).
 
 PDF statistics: 53 PDF objects out of 1000 (max. 8388607)
  31 compressed objects within 1 object stream

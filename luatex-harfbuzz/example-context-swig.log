@@ -1,28 +1,29 @@
-open source     > 1 > 1 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv
-
-ConTeXt  ver: 2016.05.17 19:20 MKIV current  fmt: 2017.1.26  int: english/english
-
+open source     > level 1, order 1, name '/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv'
+system          > 
+system          > ConTeXt  ver: 2017.05.15 21:48 MKIV beta  fmt: 2017.8.7  int: english/english
+system          > 
 system          > 'cont-new.mkiv' loaded
-open source     > 2 > 2 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-new.mkiv
-close source    > 2 > 2 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-new.mkiv
+open source     > level 2, order 2, name '/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/cont-new.mkiv'
+close source    > level 2, order 2, name '/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/cont-new.mkiv'
 system          > files > jobname 'example-context-swig', input './example-context-swig', result 'example-context-swig'
 fonts           > latin modern fonts are not preloaded
 languages       > language 'en' is active
-open source     > 2 > 3 > /Users/admin/Desktop/TeX/example-context-swig.tex
-open source     > 3 > 4 > context-harfbuzz.tex
-close source    > 3 > 4 > context-harfbuzz.tex
-system          > callbacks > not registering frozen 'hpack_filter'
+open source     > level 2, order 3, name '/Users/admin/Desktop/luatex-harfbuzz/example-context-swig.tex'
+open source     > level 3, order 4, name 'context-harfbuzz.tex'
+close source    > level 3, order 4, name 'context-harfbuzz.tex'
 fonts           > preloading latin modern fonts (second stage)
 fonts           > 'fallback modern-designsize rm 12pt' is loaded
-open source     > 3 > 5 > example-text.tex
+open source     > level 3, order 5, name 'example-text.tex'
+fonts           > defining > font 'texgyretermes-regular', feature 'locl', script 'latn', no language 'dflt'
+fonts           > defining > font 'amiri-regular', feature 'locl', script 'latn', no language 'dflt'
 otf             > devanagari > adding devanagari features to font
-backend         > xmp > using file '/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml'
-pages           > flushing realpage 1, userpage 1
+backend         > xmp > using file '/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml'
+pages           > flushing realpage 1, userpage 1, subpage 1
 pages           > flushing realpage 2, userpage 2
-close source    > 3 > 5 > example-text.tex
+close source    > level 3, order 5, name 'example-text.tex'
 pages           > flushing realpage 3, userpage 3
-close source    > 2 > 5 > /Users/admin/Desktop/TeX/example-context-swig.tex
-close source    > 1 > 5 > /usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv
+close source    > level 2, order 5, name '/Users/admin/Desktop/luatex-harfbuzz/example-context-swig.tex'
+close source    > level 1, order 5, name '/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv'
 
 system          > structure > start used structure
 
@@ -33,35 +34,35 @@ system          > structure > stop used structure
 
 system          > files > start used files
 
-used file       >    1: filename=cont-yes.mkiv filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv usedmethod=database
-used file       >    2: filename=publ-imp-default.lua filetype=scripts foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/publ-imp-default.lua usedmethod=database
-used file       >    3: filename=cont-new.mkiv filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/cont-new.mkiv usedmethod=database
-used file       >    4: filename=lang-us.lua filetype=scripts foundname=/usr/local/texlive/2016/texmf-dist/tex/context/patterns/mkiv/lang-us.lua usedmethod=database
-used file       >    5: filename=/Users/admin/Desktop/TeX/example-context-swig foundname=/Users/admin/Desktop/TeX/example-context-swig.tex usedmethod=qualified
+used file       >    1: filename=cont-yes.mkiv filetype=tex foundname=/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/cont-yes.mkiv usedmethod=database
+used file       >    2: filename=publ-imp-default.lua filetype=scripts foundname=/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/publ-imp-default.lua usedmethod=database
+used file       >    3: filename=cont-new.mkiv filetype=tex foundname=/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/cont-new.mkiv usedmethod=database
+used file       >    4: filename=lang-us.lua filetype=scripts foundname=/usr/local/texlive/2017/texmf-dist/tex/context/patterns/mkiv/lang-us.lua usedmethod=database
+used file       >    5: filename=/Users/admin/Desktop/luatex-harfbuzz/example-context-swig foundname=/Users/admin/Desktop/luatex-harfbuzz/example-context-swig.tex usedmethod=qualified
 used file       >    6: filename=context-harfbuzz filetype=tex foundname=context-harfbuzz.tex usedmethod=filesystem
 used file       >    7: filename=harfbuzz-swig.lua format=tex foundname=harfbuzz-swig.lua usedmethod=direct
-used file       >    8: filename=swiglib/hb/harfbuzz_1_4_1/core.so filetype=lib format=lib foundname=/usr/local/texlive/2016/bin/x86_64-darwin/lib/luatex/lua/swiglib/hb/harfbuzz_1_4_1/core.so usedmethod=filesystem
+used file       >    8: filename=swiglib/hb/harfbuzz_1_4_7/core.so filetype=lib format=lib foundname=/usr/local/texlive/2017/bin/x86_64-darwin/lib/luatex/lua/swiglib/hb/harfbuzz_1_4_7/core.so usedmethod=filesystem
 used file       >    9: filename=font-hb.lua format=tex foundname=font-hb.lua usedmethod=direct
-used file       >   10: filename=lm.lfg filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/fonts/mkiv/lm.lfg usedmethod=database
-used file       >   11: filename=lmroman12-regular filetype=otf format=otf foundname=/usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf usedmethod=database
-used file       >   12: filename=latinmodern-math.otf filetype=opentypefonts foundname=/usr/local/texlive/2016/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf usedmethod=database
+used file       >   10: filename=lm.lfg filetype=tex foundname=/usr/local/texlive/2017/texmf-dist/tex/context/fonts/mkiv/lm.lfg usedmethod=database
+used file       >   11: filename=lmroman12-regular filetype=otf format=otf foundname=/usr/local/texlive/2017/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf usedmethod=database
+used file       >   12: filename=latinmodern-math.otf filetype=opentypefonts foundname=/usr/local/texlive/2017/texmf-dist/fonts/opentype/public/lm-math/latinmodern-math.otf usedmethod=database
 used file       >   13: filename=example-text filetype=tex foundname=example-text.tex usedmethod=filesystem
 used file       >   14: filename=GentiumPlus-R.ttf format=ttf foundname=GentiumPlus-R.ttf usedmethod=direct
 used file       >   15: filename=texgyretermes-regular.otf format=otf foundname=texgyretermes-regular.otf usedmethod=direct
 used file       >   16: filename=amiri-regular.ttf format=ttf foundname=amiri-regular.ttf usedmethod=direct
 used file       >   17: filename=SyrCOMBatnan.otf format=otf foundname=SyrCOMBatnan.otf usedmethod=direct
 used file       >   18: filename=chandas.ttf format=ttf foundname=chandas.ttf usedmethod=direct
-used file       >   19: filename=lpdf-pdx.xml filetype=tex foundname=/usr/local/texlive/2016/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml usedmethod=database
+used file       >   19: filename=lpdf-pdx.xml filetype=tex foundname=/usr/local/texlive/2017/texmf-dist/tex/context/base/mkiv/lpdf-pdx.xml usedmethod=database
 
 system          > files > stop used files
 
 
 system          > options > start commandline options
 
-used option     > currentrun="3"
+used option     > currentrun="1"
 used option     > fulljobname="./example-context-swig"
 used option     > input="./example-context-swig"
-used option     > kindofrun="2"
+used option     > kindofrun="1"
 used option     > maxnofruns="9"
 used option     > no-parse-first-line="true"
 
@@ -75,26 +76,26 @@ system          > options > stop commandline files
 
 
 mkiv lua stats  > used config file: selfautoparent:/texmfcnf.lua;selfautoparent:/texmf-dist/web2c/texmfcnf.lua
-mkiv lua stats  > used cache path: readable+writable: '/Users/admin/Library/texlive/2016/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9'
+mkiv lua stats  > used cache path: readable+writable: '/Users/admin/Library/texlive/2017/texmf-var/luatex-cache/context/a86c089b384a3076dc514ba966a1fac9'
 mkiv lua stats  > used swiglibs: hb.core, initial load time 0.007 seconds
-mkiv lua stats  > resource resolver: loadtime 0.158 seconds, 0 scans with scantime 0.000 seconds, 0 shared scans, 19 found files, scanned paths: <none>
-mkiv lua stats  > stored bytecode data: 387 modules (0.484 sec), 82 tables (0.018 sec), 469 chunks (0.503 sec)
-mkiv lua stats  > traced context: maxstack: 1175, freed: 0, unreachable: 1175
-mkiv lua stats  > cleaned up reserved nodes: 47 nodes, 9 lists of 444
-mkiv lua stats  > node memory usage: 11 glue, 2 penalty, 28 attribute, 38 glue_spec, 10 attribute_list, 2 temp
-mkiv lua stats  > node list callback tasks: 6 unique task lists, 5 instances (re)created, 214 calls
-mkiv lua stats  > h-node processing time: 0.165 seconds including kernel
+mkiv lua stats  > resource resolver: loadtime 0.117 seconds, 0 scans with scantime 0.000 seconds, 0 shared scans, 19 found files, scanned paths: <none>
+mkiv lua stats  > stored bytecode data: 404 modules (0.393 sec), 91 tables (0.016 sec), 495 chunks (0.409 sec)
+mkiv lua stats  > traced context: maxstack: 1231, freed: 0, unreachable: 1231
+mkiv lua stats  > cleaned up reserved nodes: 49 nodes, 9 lists of 447
+mkiv lua stats  > node memory usage: 2 glue, 1 kern, 2 penalty, 12 attribute, 49 glue_spec, 4 attribute_list, 2 temp, 2 user_defined
+mkiv lua stats  > node list callback tasks: 7 unique task lists, 6 instances (re)created, 295 calls
+mkiv lua stats  > h-node processing time: 0.086 seconds including kernel
 mkiv lua stats  > used backend: pdf (backend for directly generating pdf output)
 mkiv lua stats  > jobdata time: 0.001 seconds saving, 0.001 seconds loading
-mkiv lua stats  > callbacks: 499 direct, 387 indirect, 886 total
-mkiv lua stats  > randomizer: resumed with value 0.74760900752042
+mkiv lua stats  > callbacks: 630 direct, 387 indirect, 1017 total
+mkiv lua stats  > randomizer: resumed with value 0.35302051918256
 mkiv lua stats  > loaded patterns: en::2, load time: 0.000
 mkiv lua stats  > result saved in file: example-context-swig.pdf, compresslevel 3, objectcompresslevel 3
 mkiv lua stats  > loaded fonts: 7 files: latinmodern-math.otf, lmroman12-regular.otf, amiri-regular.ttf, chandas.ttf, gentiumplus-r.ttf, syrcombatnan.otf, texgyretermes-regular.otf
-mkiv lua stats  > font engine: otf 3.020, afm 1.512, tfm 1.000, 17 instances, 8 shared in backend, 8 common vectors, 0 common hashes, load time 0.932 seconds 
+mkiv lua stats  > font engine: otf 3.029, afm 1.512, tfm 1.000, 17 instances, 8 shared in backend, 8 common vectors, 0 common hashes, load time 0.568 seconds 
 mkiv lua stats  > used platform: osx-64, type: unix, binary subtree: bin
-mkiv lua stats  > luatex banner: this is luatex, version 1.0.0 (tex live 2017/dev)
-mkiv lua stats  > control sequences: 43844 of 65536 + 100000
-mkiv lua stats  > lua properties: engine: lua, used memory: 172 MB (ctx: 172 MB), hash type: lua, hash chars: min(64,40), symbol mask: utf (τεχ)
-mkiv lua stats  > runtime: 2.103 seconds, 3 processed pages, 3 shipped pages, 1.427 pages/second
+mkiv lua stats  > luatex banner: this is luatex, version 1.0.4 (tex live 2017)
+mkiv lua stats  > control sequences: 45078 of 65536 + 100000
+mkiv lua stats  > lua properties: engine: lua, used memory: 174 MB (ctx: 174 MB), hash type: lua, hash chars: min(64,40), symbol mask: utf (τεχ)
+mkiv lua stats  > runtime: 1.296 seconds, 3 processed pages, 3 shipped pages, 2.315 pages/second
 

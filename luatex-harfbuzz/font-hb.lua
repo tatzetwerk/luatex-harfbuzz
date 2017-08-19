@@ -11,8 +11,10 @@ glue_to_hb = glue_to_hb or " "
 local fonts              = fonts
 local otf                = fonts.handlers.otf
 local otffeatures        = fonts.constructors.newfeatures("otf")
-local nodes              = nodes
+local txtdirstate        = otf.helpers.txtdirstate
+local pardirstate        = otf.helpers.pardirstate
 
+local nodes              = nodes
 local nuts               = nodes.nuts
 local tonode             = nuts.tonode
 local tonut              = nuts.tonut
@@ -22,8 +24,6 @@ local setfield           = nuts.setfield
 local getnext            = nuts.getnext
 local getprev            = nuts.getprev
 local getid              = nuts.getid
-local getattr            = nuts.getattr
-local setattr            = nuts.setattr
 local getfont            = nuts.getfont
 local getsubtype         = nuts.getsubtype
 local setsubtype         = nuts.setsubtype
@@ -35,23 +35,23 @@ local find_node_tail     = nuts.tail
 local flush_list         = nuts.flush_list
 local free_node          = nuts.free
 local new_node           = nuts.new
+local setkern            = nuts.setkern or function(n,k) setfield(n,"kern",k) end
 local end_of_math        = nuts.end_of_math
 
-local unsetvalue         = attributes.unsetvalue
+local thekern = new_node("kern",0)
+local new_kern = function(k)
+	local n = copy_node(thekern)
+	setkern(n,k)
+	return n
+end
 
 local nodecodes          = nodes.nodecodes
-local whatcodes          = nodes.whatcodes or {}	--old
-
-local what_dir_code           = whatcodes.dir	--old
-local what_localpar_code      = whatcodes.localpar	--old
-
 local glyph_code         = nodecodes.glyph
 local glue_code          = nodecodes.glue
 local disc_code          = nodecodes.disc
 local kern_code          = nodecodes.kern
 local math_code          = nodecodes.math
 local dir_code           = nodecodes.dir
-local whatsit_code       = nodecodes.whatsit	--old
 local localpar_code      = nodecodes.localpar
 
 local fonthashes         = fonts.hashes
@@ -111,7 +111,6 @@ end
 local function equalnode(n, m)
 	if not n and not m then return true end
 	if not n or not m then return false end
-	if getid(n) == whatsit_code then return false end
 	if getid(n) ~= getid(m) then return false end
 	if getid(n) == glyph_code then return getfont(n) == getfont(m) and getchar(n) == getchar(m) end
 	if getid(n) == glue_code then return true end
@@ -208,16 +207,14 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			if char == 0x0020 or char == 0x00A0 then
 				local diff = v.x_advance - spacewidth
 				if diff ~= 0 then
-					nn = new_node("kern",1)
-					setfield(nn,"kern",int(diff * factor + .5))
-				end
+					nn = new_kern(int(diff * factor + .5))
+ 				end
 				if cluster >= clusterstart and cluster < clusterstop then
 					n = nodebuf[cluster]
 					if getid(n) == glue_code then
 						n = copy_node(n)
 					else
-						n = new_node("kern",1)
-						setfield(n,"kern",int(spacewidth * factor + .5))
+						n = new_kern(int(spacewidth * factor + .5))
 					end
 					if components then
 						flush_list(components)
@@ -255,8 +252,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 --					setfield(n,"width",int(v.x_advance * factor + .5))
 --					setfield(n,"height",int(v.y_advance * factor + .5))
 					if v.x_advance ~= int(getfield(n,"width") / factor + .5) then
-						nn = new_node("kern",1)
-						setfield(nn,"kern",int(v.x_advance * factor + .5) - getfield(n,"width"))
+						nn = new_kern(int(v.x_advance * factor + .5) - getfield(n,"width"))
 						setfield(n,"next",nn)
 						setfield(nn,"prev",n)
 					end
@@ -270,8 +266,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						setfield(n,"xoffset",0)
 						local kern = int((v.x_advance - v.x_offset) * factor + .5) - getfield(n,"width")
 						if kern ~= 0 then
-							nn = new_node("kern",1)
-							setfield(nn,"kern",kern)
+							nn = new_kern(kern)
 							n, nn = nn, n
 							setfield(n,"next",nn)
 							setfield(nn,"prev",n)
@@ -279,8 +274,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						kern = int(v.x_offset * factor + .5)
 						if kern ~= 0 then
 							local tmp = nn or n
-							nn = new_node("kern",1)
-							setfield(nn,"kern",kern)
+							nn = new_kern(kern)
 							setfield(nn,"prev",tmp)
 							setfield(tmp,"next",nn)
 						end
@@ -318,43 +312,15 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 	return head, nil, ""
 end
 
-local hpack_dir = attributes.private('hpack_dir')
-if luatexbase and luatexbase.add_to_callback then
-	local function hpackfilter(head, groupcode, size, packtype, direction)
-		local head = tonut(head)
-		if direction == "TRT" then
-			setattr(head,hpack_dir,-1)
-		end
-		head = tonode(head)
-		return head
-	end
-	luatexbase.add_to_callback("hpack_filter", hpackfilter, "luaotfload.harfbuzz", 1)
-else
-	local oldhpackfilter = callback.find('hpack_filter')
-	local function hpackfilter(head, groupcode, size, packtype, direction)
-		local head = tonut(head)
-		if direction == "TRT" then
-			setattr(head,hpack_dir,-1)
-		end
-		head = tonode(head)
-		return oldhpackfilter(head, groupcode, size, packtype, direction)
-	end
-	callback.register('hpack_filter', hpackfilter)
-end
-
-local function harfbuzz(head,font,attr,rlmode,startglue,stopglue)
+local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 	head = tonut(head)
+	local rlparmode = direction == "TRT" and -1 or 0
+	local rlmode    = rlparmode
+	local dirstack  = { }
+	local topstack  = 0
 	local startglue, stopglue = startglue or "", stopglue or ""
 	local dirstack, rlparmode, topstack, text = { }, 0, 0, ""
-	if not rlmode then
-		rlmode = getattr(head,hpack_dir)
-		if rlmode then
-			setattr(head,hpack_dir,unsetvalue)
-		else
-			rlmode = 0
-		end
-	end
-	local current, start, stop, startrlmode, disctreatment = head, nil, nil, rlmode, true
+	local current, start, stop, startrlmode = head, nil, nil, rlmode
 	while current do
 		local id = getid(current)
 		if id == glyph_code and getfont(current) == font and getsubtype(current) < 256 then
@@ -364,27 +330,6 @@ local function harfbuzz(head,font,attr,rlmode,startglue,stopglue)
 			end
 			local char = getchar(current)
 			text = text .. unicode.utf8.char(char)
-			local tfmdata = fontdata[font]
-			local properties = tfmdata and tfmdata.properties
-			local script = properties and properties.script
-			if script == "deva" then
-				disctreatment = false
-			else
-				disctreatment = true
-			end
-			current = getnext(current)
-		elseif id == disc_code and not disctreatment then	-- to prevent unnecessary calculations on discs in deva
-			head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
-			local current_pre, current_post, current_replace = copy_node_list(getfield(current,"pre")), copy_node_list(getfield(current,"post")), copy_node_list(getfield(current,"replace"))
-			flush_list(getfield(current,"pre")) setfield(current,"pre",nil)
-			flush_list(getfield(current,"post")) setfield(current,"post",nil)
-			flush_list(getfield(current,"replace")) setfield(current,"replace",nil)
-			current_pre = tonut(harfbuzz(tonode(current_pre),font,attr,rlmode,"",""))
-			current_post = tonut(harfbuzz(tonode(current_post),font,attr,rlmode,"",""))
-			current_replace = tonut(harfbuzz(tonode(current_replace),font,attr,rlmode,"",""))
-			setfield(current,"pre",current_pre) setfield(current,"post",current_post) setfield(current,"replace",current_replace)
-			startglue, stopglue = "", ""
-			disctreatment = true
 			current = getnext(current)
 		elseif id == disc_code then
 			local pre, post, currentnext = nil, nil, getnext(current)
@@ -452,9 +397,9 @@ local function harfbuzz(head,font,attr,rlmode,startglue,stopglue)
 				startglue = ""
 			end
 
-			current_pre = tonut(harfbuzz(tonode(current_pre),font,attr,rlmode,startglue,""))
-			current_post = tonut(harfbuzz(tonode(current_post),font,attr,rlmode,"",stopglue))
-			current_replace = tonut(harfbuzz(tonode(current_replace),font,attr,rlmode,startglue,stopglue))
+			current_pre = tonut(harfbuzz(tonode(current_pre),font,attr,direction,n,startglue,""))
+			current_post = tonut(harfbuzz(tonode(current_post),font,attr,direction,n,"",stopglue))
+			current_replace = tonut(harfbuzz(tonode(current_replace),font,attr,direction,n,startglue,stopglue))
 			startglue, stopglue = "", ""
 
 			local cpost, creplace, cpostnew, creplacenew, newcurrent = find_node_tail(current_post), find_node_tail(current_replace), nil, nil, nil
@@ -525,77 +470,33 @@ local function harfbuzz(head,font,attr,rlmode,startglue,stopglue)
 				end
 				text = text .. " "
 			end
-			disctreatment = true
 			current = getnext(current)
 		else
 			head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
 			startglue, stopglue = "", ""
 			if id == math_code then	--TODO
 				current = end_of_math(current)
-
-			elseif id == whatsit_code then --old
-				local subtype = getsubtype(current)
-				if subtype == what_dir_code then
-					startglue = ""
-					local dir = getfield(current,"dir")
-					if dir == "+TLT" then
-						topstack = topstack + 1
-						dirstack[topstack] = dir
-						rlmode = 1
-					elseif dir == "+TRT" then
-						topstack = topstack + 1
-						dirstack[topstack] = dir
-						rlmode = -1
-					elseif dir == "-TLT" or dir == "-TRT" then
-						topstack = topstack - 1
-						rlmode = dirstack[topstack] == "+TRT" and -1 or 1
-					else
-						rlmode = rlparmode
-					end
-				elseif subtype == what_localpar_code then
-					startglue = ""
-					local dir = getfield(current,"dir")
-					if dir == "TRT" then
-						rlparmode = -1
-					elseif dir == "TLT" then
-						rlparmode = 1
-					else
-						rlparmode = 0
-					end
+				current = getnext(current)
+			elseif id == dir_code then
+				current, topstack, rlmode = txtdirstate(current,dirstack,topstack,rlparmode)
+				if topstack == 0 then
 					rlmode = rlparmode
 				end
-
-			elseif id == dir_code then
-				startglue = ""
-				local dir = getfield(current,"dir")
-				if dir == "+TLT" then
-					topstack = topstack + 1
-					dirstack[topstack] = dir
-					rlmode = 1
-				elseif dir == "+TRT" then
-					topstack = topstack + 1
-					dirstack[topstack] = dir
-					rlmode = -1
-				elseif dir == "-TLT" or dir == "-TRT" then
-					topstack = topstack - 1
-					rlmode = dirstack[topstack] == "+TRT" and -1 or 1
+				if rlmode == -1 then
+					direction = "TRT"
 				else
-					rlmode = rlparmode
+					direction = "TLT"
 				end
 			elseif id == localpar_code then
-				startglue = ""
-				local dir = getfield(current,"dir")
-				if dir == "TRT" then
-					rlparmode = -1
-				elseif dir == "TLT" then
-					rlparmode = 1
+				current, rlparmode, rlmode = pardirstate(current)
+				if rlmode == -1 then
+					direction = "TRT"
 				else
-					rlparmode = 0
+					direction = "TLT"
 				end
-				rlmode = rlparmode
+			else
+				current = getnext(current)
 			end
-			disctreatment = true
-			current = getnext(current)
 		end
 
 	end
@@ -603,9 +504,7 @@ local function harfbuzz(head,font,attr,rlmode,startglue,stopglue)
 		head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
 	end
 
-	head = tonode(head)
-
-	return head, true
+	return tonode(head), true
 end
 
 

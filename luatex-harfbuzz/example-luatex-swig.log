@@ -1,17 +1,17 @@
-This is LuaTeX, Version 1.0.0 (TeX Live 2017/dev)  (format=luatex 2017.1.18)  27 JAN 2017 13:59
+This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=luatex 2017.8.7)  15 AUG 2017 09:54
  restricted system commands enabled.
 **example-luatex-swig
 (./example-luatex-swig.tex
-(/usr/local/texlive/2016/texmf-dist/tex/generic/context/luatex/luatex-basics.te
+(/usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex/luatex-basics.te
 x
 \lastallocatedattribute=\count27
 \lastallocatedluafunction=\count28
 )
-(/usr/local/texlive/2016/texmf-dist/tex/generic/context/luatex/luatex-fonts.tex
- <push namespace> </usr/local/texlive/2016/texmf-dist/tex/generic/context/luatex
-/luatex-fonts-merged.lua>(using write cache: /Users/admin/Library/texlive/2016/t
-exmf-var/luatex-cache/generic)(using read cache: /usr/local/texlive/2016/texmf-v
-ar/luatex-cache/generic /Users/admin/Library/texlive/2016/texmf-var/luatex-cache
+(/usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex/luatex-fonts.tex
+ <push namespace> </usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex
+/luatex-fonts-merged.lua>(using write cache: /Users/admin/Library/texlive/2017/t
+exmf-var/luatex-cache/generic)(using read cache: /usr/local/texlive/2017/texmf-v
+ar/luatex-cache/generic /Users/admin/Library/texlive/2017/texmf-var/luatex-cache
 /generic)
 !
 ! Attribute 0 is reserved for ConTeXt's font feature management and has to be
@@ -26,36 +26,11 @@ ar/luatex-cache/generic /Users/admin/Library/texlive/2016/texmf-var/luatex-cache
 ! updated libraries. The merged version is not supported as it
 ! is a frozen instance. Problems can be reported to the ConTeXt
 ! mailing list.
-! <luatex-fonts.lua loaded in 0.066 seconds> <pop namespace>)
-(./luatex-harfbuzz.tex)swiglib.hb.core' is loaded> (./example-text.tex(compiling
- luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/gentiumpl
-us-r.luc)(load luc: /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/gen
-eric/fonts/otl/gentiumplus-r.luc)
+! <luatex-fonts.lua loaded in 0.048 seconds> <pop namespace>)
+(./luatex-harfbuzz.tex)swiglib.hb.core' is loaded> (./example-text.tex(load luc:
+ /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/gent
+iumplus-r.luc)
 fonts : loading './GentiumPlus-R.ttf', hash 'gentiumplus-r'
-otf reader : found cmaps:
-otf reader :   platform 0: unicode
-otf reader :     encoding 3: unicode 2.0 bmp
-otf reader :       formats: 4
-otf reader :   platform 1: macintosh (unsupported)
-otf reader :     encoding 0: roman (unsupported)
-otf reader :       formats: 6 (unsupported)
-otf reader :   platform 3: windows
-otf reader :     encoding 1: unicode bmp
-otf reader :       formats: 4
-otf reader :     encoding 10: unicode ucs-4
-otf reader :       formats: 12
-otf reader : cmap checked: platform 3 (windows), encoding 1 (unicode bmp), forma
-t 4, new unicodes 2696
-otf reader : cmap checked: platform 3 (windows), encoding 10 (unicode ucs-4), fo
-rmat 12, new unicodes 12
-otf reader : cmap checked: platform 0 (unicode), encoding 3 (unicode 2.0 bmp), f
-ormat 4, new unicodes 0
-otf reader : no coverage class
-otf reader : no coverage class
-otf reader : no coverage class
-otf reader : gsub lookup s_l_1 of type 'single' is not used
-otf reader : gsub lookup s_l_10 of type 'single' is not used
-otf reader : gsub lookup s_l_31 of type 'single' is not used
 otf reader : merging 2 steps of 'gpos_mark2base' lookup 'p_s_1'
 otf reader : discarding not used baseclass 23
 otf reader : discarding not used baseclass 25
@@ -90,56 +65,22 @@ otf reader : 2286 bogus names removed (verbose unicode)
 otf reader : 2851 base class tags removed (default is base)
 fonts : loading done
 fonts : saving './GentiumPlus-R.ttf' in cache(save: /Users/admin/Library/texlive
-/2016/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r.lua)(save: /Users/a
-dmin/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r
-.luc)(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/font
-s/otl/texgyretermes-regular.luc)(load luc: /Users/admin/Library/texlive/2016/tex
-mf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.luc)
+/2017/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r.lua)(save: /Users/a
+dmin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r
+.luc)(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
+/fonts/otl/texgyretermes-regular.luc)
 fonts : loading './texgyretermes-regular.otf', hash 'texgyretermes-regular'
-otf reader : found cmaps:
-otf reader :   platform 0: unicode
-otf reader :     encoding 3: unicode 2.0 bmp
-otf reader :       formats: 4
-otf reader :   platform 1: macintosh (unsupported)
-otf reader :     encoding 0: roman (unsupported)
-otf reader :       formats: 6 (unsupported)
-otf reader :   platform 3: windows
-otf reader :     encoding 1: unicode bmp
-otf reader :       formats: 4
-otf reader : cmap checked: platform 3 (windows), encoding 1 (unicode bmp), forma
-t 4, new unicodes 1053
-otf reader : cmap checked: platform 0 (unicode), encoding 3 (unicode 2.0 bmp), f
-ormat 4, new unicodes 0
 otf reader : not unicoded: dblgrave.ts1 idotaccent.sc
 otf reader : 47 bogus names removed (verbose unicode)
 fonts : loading done
 fonts : saving './texgyretermes-regular.otf' in cache(save: /Users/admin/Library
-/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.lua
-)(save: /Users/admin/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/o
-tl/texgyretermes-regular.luc)(compiling luc: /usr/local/texlive/2016/texmf-var/l
-uatex-cache/generic/fonts/otl/amiri-regular.luc)(load luc: /Users/admin/Library/
-texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular.luc)
+/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.lua
+)(save: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/o
+tl/texgyretermes-regular.luc)
+fonts : font table: 0x7f8b7dd91720, feature 'locl', script 'latn', no language '
+dflt'(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
+/fonts/otl/amiri-regular.luc)
 fonts : loading './amiri-regular.ttf', hash 'amiri-regular'
-otf reader : found cmaps:
-otf reader :   platform 0: unicode
-otf reader :     encoding 3: unicode 2.0 bmp
-otf reader :       formats: 4
-otf reader :     encoding 4: unicode 2.0 full (unsupported)
-otf reader :       formats: 12 (unsupported)
-otf reader :   platform 1: macintosh (unsupported)
-otf reader :     encoding 0: roman (unsupported)
-otf reader :       formats: 6 (unsupported)
-otf reader :   platform 3: windows
-otf reader :     encoding 1: unicode bmp
-otf reader :       formats: 4
-otf reader :     encoding 10: unicode ucs-4
-otf reader :       formats: 12
-otf reader : cmap checked: platform 3 (windows), encoding 1 (unicode bmp), forma
-t 4, new unicodes 1535
-otf reader : cmap checked: platform 3 (windows), encoding 10 (unicode ucs-4), fo
-rmat 12, new unicodes 141
-otf reader : cmap checked: platform 0 (unicode), encoding 3 (unicode 2.0 bmp), f
-ormat 4, new unicodes 0
 otf reader : rule 1 in gsub lookup 's_s_137' has empty lookups
 otf reader : rule 1 in gsub lookup 's_s_190' has empty lookups
 otf reader : merging 6 steps of 'gpos_pair' lookup 'p_s_116'
@@ -231,42 +172,24 @@ otf reader : 1326 bogus names removed (verbose unicode)
 otf reader : 6382 base class tags removed (default is base)
 fonts : loading done
 fonts : saving './amiri-regular.ttf' in cache(save: /Users/admin/Library/texlive
-/2016/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular.lua)(save: /Users/a
-dmin/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular
-.luc)(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/font
-s/otl/syrcombatnan.luc)(load luc: /Users/admin/Library/texlive/2016/texmf-var/lu
-atex-cache/generic/fonts/otl/syrcombatnan.luc)
+/2017/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular.lua)(save: /Users/a
+dmin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular
+.luc)
+fonts : font table: 0x7f8b7e757ce0, feature 'locl', script 'latn', no language '
+dflt'(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
+/fonts/otl/syrcombatnan.luc)
 fonts : loading './SyrCOMBatnan.otf', hash 'syrcombatnan'
-otf reader : found cmaps:
-otf reader :   platform 1: macintosh (unsupported)
-otf reader :     encoding 0: roman (unsupported)
-otf reader :       formats: 0 (unsupported)
-otf reader :   platform 3: windows
-otf reader :     encoding 1: unicode bmp
-otf reader :       formats: 4
-otf reader : cmap checked: platform 3 (windows), encoding 1 (unicode bmp), forma
-t 4, new unicodes 349
 otf reader : not unicoded: bulletmath
 otf reader : 81 bogus names removed (verbose unicode)
 otf reader : 177 base class tags removed (default is base)
 fonts : loading done
 fonts : saving './SyrCOMBatnan.otf' in cache(save: /Users/admin/Library/texlive/
-2016/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lua)(save: /Users/adm
-in/Library/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lu
-c)(compiling luc: /usr/local/texlive/2016/texmf-var/luatex-cache/generic/fonts/o
-tl/chandas.luc)(load luc: /Users/admin/Library/texlive/2016/texmf-var/luatex-cac
-he/generic/fonts/otl/chandas.luc)
+2017/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lua)(save: /Users/adm
+in/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lu
+c)(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fo
+nts/otl/chandas.luc)
 fonts : loading './chandas.ttf', hash 'chandas'
-otf reader : found cmaps:
-otf reader :   platform 1: macintosh (unsupported)
-otf reader :     encoding 0: roman (unsupported)
-otf reader :       formats: 0 (unsupported)
-otf reader :   platform 3: windows
-otf reader :     encoding 1: unicode bmp
-otf reader :       formats: 4
-otf reader : cmap checked: platform 3 (windows), encoding 1 (unicode bmp), forma
-t 4, new unicodes 1017
-otf reader : adding global kern table as gpos feature 'kern'
+otf reader : ignoring empty kern table of feature 'kern'
 otf reader : not unicoded: Breve Circumflex Dotaccent Doubleacute GYksha Gcksha 
 GkshGa Gtba Gthma IT1 LjYa Lna Tilde Tnba Tthma Tyya Yjba Yjva ardhaDhm0 ardhaDh
 m1 ardhaDhy0 ardhaDhy1 ardhaDhy2 ardhaDhy3 ardhaDm0 ardhaDm1 ardhaDm2 ardhaDy0 a
@@ -386,17 +309,18 @@ krma parakrya paratra shkca
 otf reader : 321 bogus names removed (verbose unicode)
 otf reader : 4940 base class tags removed (default is base)
 fonts : loading done
-fonts : saving './chandas.ttf' in cache(save: /Users/admin/Library/texlive/2016/
+fonts : saving './chandas.ttf' in cache(save: /Users/admin/Library/texlive/2017/
 texmf-var/luatex-cache/generic/fonts/otl/chandas.lua)(save: /Users/admin/Library
-/texlive/2016/texmf-var/luatex-cache/generic/fonts/otl/chandas.luc)
-otf : adding devanagari features to font [1{/Users/admin/Library/texlive/2016/te
-xmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]) [3])<./texgyretermes-regular.o
-tf><./chandas.ttf><./SyrCOMBatnan.otf><./amiri-regular.ttf><./GentiumPlus-R.ttf>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on example-luatex-swig.pdf (3 pages, 113457 bytes).
+/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/chandas.luc)
+otf : adding devanagari features to font [1{/usr/local/texlive/2017/texmf-var/fo
+nts/map/pdftex/updmap/pdftex.map}] [2]) [3])<./GentiumPlus-R.ttf><./texgyreterme
+s-regular.otf><./chandas.ttf><./SyrCOMBatnan.otf><./amiri-regular.ttf><./Gentium
+Plus-R.ttf></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb>
+Output written on example-luatex-swig.pdf (3 pages, 146439 bytes).
 
-PDF statistics: 53 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+PDF statistics: 60 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
