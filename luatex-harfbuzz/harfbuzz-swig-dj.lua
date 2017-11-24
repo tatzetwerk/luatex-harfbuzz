@@ -36,7 +36,7 @@ hb.shape = function(font, buf, options)
   options = options or { }
 
   -- Apply options to buffer if they are set.
-  if options.language then buf:set_language(options.language) end
+  if options.language then buf:set_language(hb.Language.new(options.language)) end
   if options.script then buf:set_script(hb.Script.new(options.script)) end
   if options.direction then buf:set_direction(hb.Direction.new(options.direction)) end
 
@@ -45,13 +45,11 @@ hb.shape = function(font, buf, options)
   buf:guess_segment_properties()
 
   local features = {}
-
   -- Parse features
+
   if type(options.features) == "string" then
     for fs in string.gmatch(options.features, '([^,]+)') do
-      if string.len(fs) == 5 then
-        table.insert(features, hb.Feature.new(fs))
-      end
+      table.insert(features, hb.Feature.new(fs))
     end
   elseif type(options.features) == "table" then
     features = options.features

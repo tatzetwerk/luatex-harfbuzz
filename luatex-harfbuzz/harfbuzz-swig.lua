@@ -31,7 +31,7 @@ end
 --  passes it on to hb_shape_full().
 --
 --  Returns a table containing shaped glyphs.
-hb.shape = function(font, buf, options)
+hb.shape = function(font, buf, options, shaper)
 	options = options or { }
 
 	-- Apply options to buffer if they are set.
@@ -55,22 +55,34 @@ hb.shape = function(font, buf, options)
 	-- to set the right properties.
 	buf:guess_segment_properties()
 
-	local features, num_features = hb.hb_feature_t(), 0
+	local featurestrings = {}
+	local features, num_features = nil, 0
 	-- Parse features
+
 	if type(options.features) == "string" then
-	for fs in string.gmatch(options.features, '([^,]+)') do
-		if string.len(fs) == 5 then
-			hb.hb_feature_from_string(fs, #fs, features)
+		for fs in string.gmatch(options.features, '([^,]+)') do
 			num_features = num_features + 1
+			table.insert(featurestrings, fs)
 		end
-	end
+		features = hb.new_hb_feature_t_array(num_features)
+		for i=1,num_features do
+			local feature = hb.hb_feature_t()
+			hb.hb_feature_from_string(featurestrings[i], #featurestrings[i], feature)
+			hb.hb_feature_t_array_setitem(features, i-1, feature)
+		end
 	elseif type(options.features) == "table" then
 		features = options.features
 	elseif options.features then -- non-nil but not a string or table
 		error("Invalid features option")
 	end
 
-	hb.hb_shape_full(font, buf.buf, features, num_features, nil)
+	local shapers = nil
+	if shaper ~= "" then
+		shapers = hb.new_char_p_array(0)
+		hb.char_p_array_setitem(shapers, 0, shaper)
+	end
+
+	hb.hb_shape_full(font, buf.buf, features, num_features, shapers)
 end
 
 hb.Buffer = hb.Buffer or {}

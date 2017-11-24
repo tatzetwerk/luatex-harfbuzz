@@ -365,7 +365,7 @@ end
 --  passes it on to hb_shape_full().
 --
 --  Returns a table containing shaped glyphs.
-hb.shape = function(font, buf, options)
+hb.shape = function(font, buf, options, shaper)
 	options = options or { }
 
 	-- Apply options to buffer if they are set.
@@ -405,10 +405,8 @@ hb.shape = function(font, buf, options)
 
 		if type(options.features) == "string" then
 			for fs in string.gmatch(options.features, '([^,]+)') do
-				if string.len(fs) == 5 then
-					num_features = num_features + 1
-					table.insert(featurestrings, fs)
-				end
+				num_features = num_features + 1
+				table.insert(featurestrings, fs)
 			end
 			local feature = ffi.new("hb_feature_t[?]",num_features)
 			features = feature[0]
@@ -434,7 +432,9 @@ hb.shape = function(font, buf, options)
 	-- to set the right properties.
 	buf:guess_segment_properties()
 
-	harfbuzz.hb_shape_full(font, buf, features, num_features, nil)
+	local shapers = shaper ~= "" and ffi.new("const char *const[?]", 0, {shaper}) or nil
+
+	harfbuzz.hb_shape_full(font, buf, features, num_features, shapers)
 end
 
 local Buffer

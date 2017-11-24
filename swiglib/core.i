@@ -62,6 +62,8 @@
 
 %array_functions(hb_glyph_info_t, hb_glyph_info_t_array);
 %array_functions(hb_glyph_position_t, hb_glyph_position_t_array);
+%array_functions(hb_feature_t, hb_feature_t_array);
+%array_functions(char*, char_p_array);
 
 %pointer_cast(uint32_t, unsigned long int, uint32_t_to_unsigned_long_int);
 %pointer_cast(int32_t, long int, int32_t_to_long_int);

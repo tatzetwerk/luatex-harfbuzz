@@ -151,16 +151,17 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 		buf:add_utf8(startglue..text..stopglue)
 
 		local tfmdata = fontdata[font]
-		local hb_font = tfmdata.shared.hb_font
+		local tfmdata_shared = tfmdata.shared
+		local hb_font = tfmdata_shared.hb_font
 		local factor = tfmdata.parameters.factor
 		local marks = tfmdata.resources.marks or {}
-		local spacewidth = tfmdata.shared.spacewidth
-		local cptochar = tfmdata.shared.cptochar
+		local spacewidth = tfmdata_shared.spacewidth
+		local cptochar = tfmdata_shared.cptochar
 
-		local opts = tfmdata.shared.opts
+		local opts = tfmdata_shared.opts
 		opts.direction = rlmode < 0 and "rtl" or "ltr"
 
-		hb.shape(hb_font, buf, opts)
+		hb.shape(hb_font, buf, opts, tfmdata_shared.shaper)
 
 		if rlmode < 0 then
 			buf:reverse()
@@ -313,6 +314,9 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 end
 
 local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
+	if not fontdata[font].shared.shaper then
+		return head
+	end
 	head = tonut(head)
 	local rlparmode = direction == "TRT" and -1 or 0
 	local rlmode    = rlparmode
@@ -509,6 +513,47 @@ end
 
 
 local function initializeharfbuzz(tfmdata)
+	local features, featurestring, localopts, localshaper = tfmdata.shared.features, "", {}, ""
+	for k,v in next, features do
+		if k == "harfbuzz" then
+			if (type(v) == "string" and v == "yes") or (type(v) == "boolean" and v) then
+				localshaper = ""
+			elseif (type(v) == "string" and v == "no") or (type(v) == "boolean" and not v) then
+				return
+			elseif type(v) == "string" then
+				localshaper = v
+			end
+		elseif k == "analyze" or k == "features" or k  == "devanagari" or k == "spacekern" or k == "checkmarks" then
+		elseif k == "mode" and v == "base" then
+--			texio.write_nl("Warning: mode of harfbuzz fonts should be node!")
+		elseif k == "mode" and v == "node" then
+		elseif k == "language" and type(v) == "string" then
+			localopts.language = v
+		elseif k == "script" and type(v) == "string" then
+			localopts.script = v
+		elseif string.len(k) == 4 then
+			if (type(v) == "string" and v == "yes") or (type(v) == "boolean" and v) then
+				featurestring = featurestring .. "+" .. tostring(k) .. ","
+			elseif (type(v) == "string" and v == "no") or (type(v) == "boolean" and not v) then
+				featurestring = featurestring .. "-" .. tostring(k) .. ","
+			elseif type(v) == "string" then
+				featurestring = featurestring .. "+" .. tostring(k) .. "=" .. v .. ","
+			end
+		end
+	end
+	if featurestring ~= "" then
+		localopts.features = featurestring
+	end
+	tfmdata.shared.opts = localopts
+	tfmdata.shared.shaper = localshaper
+
+	local keepfeatures = {}
+	keepfeatures["tlig"] = features["tlig"]
+	keepfeatures["trep"] = features["trep"]
+	keepfeatures["tcom"] = features["tcom"]
+	keepfeatures["anum"] = features["anum"]
+	tfmdata.shared.features = keepfeatures
+
 	local resources        = tfmdata.resources
 	local filename         = resources.filename
 	local face             = hb.Face.new(filename)
@@ -523,36 +568,6 @@ local function initializeharfbuzz(tfmdata)
 			tfmdata.shared.spacewidth = v.width
 		end
 	end
-	
-	local features, featurestring, localopts = tfmdata.shared.features, "", {}
-	for k,v in next, features do
-		if k == "harfbuzz" or k == "analyze" or k == "features" or k  == "devanagari" or k == "spacekern" then
-		elseif k == "mode" and v == "base" then
---			texio.write_nl("Warning: mode of harfbuzz fonts should be node!")
-		elseif k == "mode" and v == "node" then
-		elseif (type(v) == "string" and v == "yes") or (type(v) == "boolean" and v) then
-			featurestring = featurestring .. "+" .. tostring(k) .. ","
-		elseif (type(v) == "string" and v == "no") or (type(v) == "boolean" and not v) then
-			featurestring = featurestring .. "-" .. tostring(k) .. ","
-		elseif type(v) == "string" then
-			if k == "language" then
-				localopts.language = v
-			elseif k == "script" then
-				localopts.script = v
-			end
-		end
-	end
-	if featurestring ~= "" then
-		localopts.features = featurestring
-	end
-	tfmdata.shared.opts = localopts
-
-	local keepfeatures = {}
-	keepfeatures["tlig"] = features["tlig"]
-	keepfeatures["trep"] = features["trep"]
-	keepfeatures["tcom"] = features["tcom"]
-	keepfeatures["anum"] = features["anum"]
-	tfmdata.shared.features = keepfeatures
 end
 
 otffeatures.register {
