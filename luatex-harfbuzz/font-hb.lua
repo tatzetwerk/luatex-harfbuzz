@@ -207,20 +207,22 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			n, nn = nil, nil
 			if char == 0x0020 or char == 0x00A0 then
 				local diff = v.x_advance - spacewidth
-				if diff ~= 0 then
-					nn = new_kern(int(diff * factor + .5))
- 				end
 				if cluster >= clusterstart and cluster < clusterstop then
 					n = nodebuf[cluster]
 					if getid(n) == glue_code then
 						n = copy_node(n)
+						if diff ~= 0 then
+							setfield(n,"width",(int(diff * factor + .5) + getfield(n,"width")))
+						end
 					else
-						n = new_kern(int(spacewidth * factor + .5))
+						n = new_kern(int((diff+spacewidth) * factor + .5))
 					end
 					if components then
 						flush_list(components)
 						components = nil
 					end
+				else
+					nn = new_kern(int(diff * factor + .5))
 				end
 				if n and nn then
 					if rlmode < 0 then
@@ -357,7 +359,7 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 				while currentnext and ((getid(currentnext) == glyph_code and getfont(currentnext) == font and getsubtype(currentnext) < 256) or getid(currentnext) == disc_code) do stop = currentnext currentnext = getnext(currentnext) end
 				if currentnext and getid(currentnext) == glue_code then
 					local width = getfield(currentnext,"width")
-					if width and width > 0 then
+					if width > 0 or getsubtype(currentnext) == 13 then
 						stopglue = glue_to_hb
 					else
 						stopglue = ""
@@ -460,7 +462,7 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 		elseif id == glue_code then
 			if rlmode >= 0 then
 				local width = getfield(current,"width")
-				if width and width > 0 then
+				if width > 0 or getsubtype(current) == 13 then
 					head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,glue_to_hb)
 					startglue, stopglue = glue_to_hb, ""
 				else
@@ -468,11 +470,17 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 					startglue, stopglue = "", ""
 				end
 			else
-				if not start then
-					start = current
-					startrlmode = rlmode
+				local width = getfield(current,"width")
+				if width > 0 or getsubtype(current) == 13 then
+					if not start then
+						start = current
+						startrlmode = rlmode
+					end
+					text = text .. " "
+				else
+					head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
+					startglue, stopglue = "", ""
 				end
-				text = text .. " "
 			end
 			current = getnext(current)
 		else
