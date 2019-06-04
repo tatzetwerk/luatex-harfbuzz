@@ -40,26 +40,26 @@ In principle, the applied method is not restricted to the HarfBuzz engine. Pleas
 
 ## Quick results via FFI
 
-#### Install MacTeX 2017, Homebrew, and HarfBuzz
+#### Install MacTeX 2019, Homebrew, and HarfBuzz
 
-Download MacTeX.pkg (2017) from http://www.tug.org/mactex/mactex-download.html and run the installer. When asked, also install the Mac OS X command line developer tools.
+Download MacTeX.pkg (2019) from http://www.tug.org/mactex/mactex-download.html and run the installer. When asked, also install the Mac OS X command line developer tools.
 
 Install Homebrew:
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Install HarfBuzz (the result is /usr/local/Cellar/harfbuzz/1.4.7/lib/libharfbuzz.0.dylib):
+Install HarfBuzz (the result is /usr/local/lib/libharfbuzz.0.dylib):
 ```
 brew install harfbuzz
 ```
 
 #### Prepare LuaJitLaTeX
-MacTeX 2017 does not create a luajitlatex executable and its accompanying format file. These can be created manually:
+MacTeX 2019 does not create a luajitlatex executable and its accompanying format file. These can be created manually:
 ```
-cd /usr/local/texlive/2017/texmf-var/web2c/luajittex/
+cd /usr/local/texlive/2019/texmf-var/web2c/luajittex/
 sudo luajittex -ini -jobname=luajitlatex \* lualatex.ini
-cd /usr/local/texlive/2017/bin/x86_64-darwin
+cd /usr/local/texlive/2019/bin/x86_64-darwin
 sudo ln -s luajittex luajitlatex
 sudo texhash
 ```
@@ -72,9 +72,9 @@ Now _luatex-harfbuzz_ should already work via FFI, which can be tested by means 
 ```
 luajittex --shell-escape example-luatex-ffi
 luajitlatex --shell-escape example-lualatex-ffi
-context --jit example-context-ffi
+contextjit example-context-ffi
 ```
-Note that the ConTeXt OpenType engine is in constant development and that the version installed by means of MacTeX 2017 is not the most recent one. For a fair comparison between the ConTeXt OpenType engine and HarfBuzz, a recent beta version should be used. The ConTeXt OpenType engine can be updated by updating ConTeXt. For instructions, see the manual of [luatools]. (This manual is also helpful for tackling problems related to running ConTeXt.) Additionaly, for LuaLaTeX the luaotfload package can be updated, for instance by means of the [TeX Live Utility].
+Note that the ConTeXt OpenType engine is in constant development and that the version installed by means of MacTeX 2019 is not the most recent one. For a fair comparison between the ConTeXt OpenType engine and HarfBuzz, a recent beta version should be used. The ConTeXt OpenType engine can be updated by updating ConTeXt. For instructions, see the manual of [luatools]. (This manual is also helpful for tackling problems related to running ConTeXt.) Additionaly, for LuaLaTeX the luaotfload package can be updated, for instance by means of the [TeX Live Utility].
 
 [luatools]:http://www.pragma-ade.com/general/manuals/tools-mkiv.pdf
 
@@ -82,10 +82,10 @@ Note that the ConTeXt OpenType engine is in constant development and that the ve
 
 ## SwigLib bindings
 Alternative to the FFI route, binding HarfBuzz to LuaTex can also be done via SwigLib. This involves:
-* Installing MacTeX 2017, Homebrew, and HarfBuzz
+* Installing MacTeX 2019, Homebrew, and HarfBuzz
 * Compiling libraries
 
-#### Install MacTeX 2017, Homebrew, and HarfBuzz
+#### Install MacTeX 2019, Homebrew, and HarfBuzz
 See above.
 
 #### Compile libraries
@@ -99,12 +99,17 @@ Install Lua:
 brew install lua
 ```
 
+Install luarocks:
+```
+brew install luarocks
+```
+
 Install luaharfbuzz:
 ```
 sudo luarocks install luaharfbuzz
 ```
 
-Create the folder lib/luatex/lua/swiglib/hb\_deepak/luaharfbuzz\_0\_0\_7-0/ in /usr/local/texlive/2017/bin/x86\_64-darwin/ and copy the generated luaharfbuzz.so (in /usr/local/lib/lua/5.2) to that folder.
+Create the folder lib/luatex/lua/swiglib/hb\_deepak/luaharfbuzz/ in /usr/local/texlive/2019/bin/x86\_64-darwin/ and copy the generated luaharfbuzz.so (in /usr/local/lib/lua/5.3) to that folder.
 
 ###### Test luaharfbuzz
 Now _luatex-harfbuzz_ should work via luaharfbuzz, which can be tested by means of the example files in the luatex-harfbuzz folder:
@@ -125,7 +130,7 @@ Install swig:
 brew install swig
 ```
 
-Download the tarball release of HarfBuzz from https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.4.7.tar.bz2
+Download the newest tarball release (.tar.bz2) of HarfBuzz from https://www.freedesktop.org/software/harfbuzz/release/
 
 Move the src folder to the swiglib folder in which the .so file will be build (this is the folder that, amongst others, contains core.i).
 
@@ -137,7 +142,7 @@ make
 
 Rename the generated swiglib-harfbuzz.so to core.so
 
-Create the folder lib/luatex/lua/swiglib/hb/harfbuzz\_1\_4\_7/ in /usr/local/texlive/2017/bin/x86\_64-darwin/ and copy the generated core.so to that folder.
+Create the folder lib/luatex/lua/swiglib/hb/harfbuzz/ in /usr/local/texlive/2019/bin/x86\_64-darwin/ and copy the generated core.so to that folder.
 
 ###### Test SwigLib
 Now _luatex-harfbuzz_ should work via the SwigLib binding of core.so, which can be tested by means of the example files in the luatex-harfbuzz folder:
