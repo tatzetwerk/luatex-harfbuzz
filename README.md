@@ -109,7 +109,7 @@ Install luaharfbuzz:
 sudo luarocks install luaharfbuzz
 ```
 
-Create the folder lib/luatex/lua/swiglib/hb\_deepak/luaharfbuzz/ in /usr/local/texlive/2019/bin/x86\_64-darwin/ and copy the generated luaharfbuzz.so (in /usr/local/lib/lua/5.3) to that folder.
+Create the folder lib/luatex/lua/swiglib/hb\_deepak/ in /usr/local/texlive/2019/bin/x86\_64-darwin/ and copy the generated luaharfbuzz.so (in /usr/local/lib/lua/5.3) to that folder.
 
 ###### Test luaharfbuzz
 Now _luatex-harfbuzz_ should work via luaharfbuzz, which can be tested by means of the example files in the luatex-harfbuzz folder:
@@ -130,11 +130,16 @@ Install swig:
 brew install swig
 ```
 
+Install pkgconfig:
+```
+brew install pkgconfig
+```
+
 Download the newest tarball release (.tar.bz2) of HarfBuzz from https://www.freedesktop.org/software/harfbuzz/release/
 
 Move the src folder to the swiglib folder in which the .so file will be build (this is the folder that, amongst others, contains core.i).
 
-Build swiglib-harfbuzz.so (if during this process lua.h is not found, it might help to (re)install Xcode Command Line Tools by means of "xcode-select --install"):
+Build swiglib-harfbuzz.so (if during this process lua.h, luaconf.h, and lauxlib.h are not found, it might help to make a symlink to them in /usr/local/include: ln -s /usr/local/include/lua/lua.h /usr/local/include && ln -s /usr/local/include/lua/luaconf.h /usr/local/include && ln -s /usr/local/include/lua/lauxlib.h /usr/local/include):
 ```
 swig -cpperraswarn -c++ -lua core.i
 make
@@ -142,7 +147,7 @@ make
 
 Rename the generated swiglib-harfbuzz.so to core.so
 
-Create the folder lib/luatex/lua/swiglib/hb/harfbuzz/ in /usr/local/texlive/2019/bin/x86\_64-darwin/ and copy the generated core.so to that folder.
+Create the folder lib/luatex/lua/swiglib/hb/ in /usr/local/texlive/2019/bin/x86\_64-darwin/ and copy the generated core.so to that folder.
 
 ###### Test SwigLib
 Now _luatex-harfbuzz_ should work via the SwigLib binding of core.so, which can be tested by means of the example files in the luatex-harfbuzz folder:

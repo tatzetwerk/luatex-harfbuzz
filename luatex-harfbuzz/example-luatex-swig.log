@@ -1,18 +1,19 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=luatex 2017.8.7)  15 AUG 2017 09:54
+This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=luatex 2019.6.4)  5 JUN 2019 14:08
  restricted system commands enabled.
 **example-luatex-swig
 (./example-luatex-swig.tex
-(/usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex/luatex-basics.te
+(/usr/local/texlive/2019/texmf-dist/tex/generic/context/luatex/luatex-basics.te
 x
 \lastallocatedattribute=\count27
 \lastallocatedluafunction=\count28
 )
-(/usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex/luatex-fonts.tex
- <push namespace> </usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex
-/luatex-fonts-merged.lua>(using write cache: /Users/admin/Library/texlive/2017/t
-exmf-var/luatex-cache/generic)(using read cache: /usr/local/texlive/2017/texmf-v
-ar/luatex-cache/generic /Users/admin/Library/texlive/2017/texmf-var/luatex-cache
-/generic)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/context/luatex/luatex-fonts.tex
+system : loading '/usr/local/texlive/2019/texmf-dist/tex/generic/context/luatex/
+luatex-fonts-merged.lua'
+system : using write cache '/Users/admin/Library/texlive/2019/texmf-var/luatex-c
+ache/generic'
+system : using read cache '/usr/local/texlive/2019/texmf-var/luatex-cache/generi
+c /Users/admin/Library/texlive/2019/texmf-var/luatex-cache/generic'
 !
 ! Attribute 0 is reserved for ConTeXt's font feature management and has to be
 ! set to zero. Also, some attributes in the range 1-255 are used for special
@@ -26,298 +27,33 @@ ar/luatex-cache/generic /Users/admin/Library/texlive/2017/texmf-var/luatex-cache
 ! updated libraries. The merged version is not supported as it
 ! is a frozen instance. Problems can be reported to the ConTeXt
 ! mailing list.
-! <luatex-fonts.lua loaded in 0.048 seconds> <pop namespace>)
-(./luatex-harfbuzz.tex)swiglib.hb.core' is loaded> (./example-text.tex(load luc:
- /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/gent
-iumplus-r.luc)
-fonts : loading './GentiumPlus-R.ttf', hash 'gentiumplus-r'
-otf reader : merging 2 steps of 'gpos_mark2base' lookup 'p_s_1'
-otf reader : discarding not used baseclass 23
-otf reader : discarding not used baseclass 25
-otf reader : discarding not used baseclass 24
-otf reader : discarding not used baseclass 21
-otf reader : discarding not used baseclass 22
-otf reader : merging 2 steps of 'gpos_pair' lookup 'p_s_5'
-otf reader : turning pairs of step 1 of 'gpos_pair' lookup 'p_s_5' into kerns
-otf reader : 2 steps of 95 removed due to merging
-otf reader : 1 steps of 95 steps turned from pairs into kerns
-otf reader : duplicates: 1 : 〉 (U+0232A) @ I00A91 ⟩ (U+027E9)
-otf reader : duplicates: 1 : 〈 (U+02329) @ I00A8C ⟨ (U+027E8)
-otf reader : duplicates: 1 : Ʝ (U+0A7B2) @ I0041C  (U+0F26C)
-otf reader : duplicates: 1 : ꞔ (U+0A794) @ I001EF  (U+0F225) <loading (exte
-nded) adobe glyph list>
-otf reader : not unicoded: compBoxDotted compComma compDigitEight compDigitFive 
-compDigitFour compDigitNine compDigitOne compDigitSeven compDigitSix compDigitTh
-ree compDigitTwo compDigitZero compLftParen compLtnCapB compLtnCapC compLtnCapD 
-compLtnCapE compLtnCapF compLtnCapG compLtnCapH compLtnCapJ compLtnCapL compLtnC
-apM compLtnCapN compLtnCapO compLtnCapP compLtnCapR compLtnCapS compLtnCapV comp
-LtnCapW compLtnCapX compLtnCapY compLtnCapZ compRtParen compTnLtrBar compTnLtrDo
-t1 compTnLtrDot2 compTnLtrDot3 compTnLtrDot4 compTnLtrDot5 compTnLtrSeg11 compTn
-LtrSeg12 compTnLtrSeg13 compTnLtrSeg14 compTnLtrSeg15 compTnLtrSeg21 compTnLtrSe
-g22 compTnLtrSeg23 compTnLtrSeg24 compTnLtrSeg25 compTnLtrSeg31 compTnLtrSeg32 c
-ompTnLtrSeg33 compTnLtrSeg34 compTnLtrSeg35 compTnLtrSeg41 compTnLtrSeg42 compTn
-LtrSeg43 compTnLtrSeg44 compTnLtrSeg45 compTnLtrSeg51 compTnLtrSeg52 compTnLtrSe
-g53 compTnLtrSeg54 compTnLtrSeg55 compTnLtrSpcDotLeft compTnLtrSpcDotMiddle comp
-TnLtrSpcDotRight compTnLtrSpcFlatLeft compTnLtrSpcFlatRight compTnLtrSpcPointLef
-t compTnLtrSpcPointRight idotaccent idotaccent.LP idotaccent.SItal idotaccent.SI
-tal.LP idotaccent.sc
-otf reader : 2286 bogus names removed (verbose unicode)
-otf reader : 2851 base class tags removed (default is base)
-fonts : loading done
-fonts : saving './GentiumPlus-R.ttf' in cache(save: /Users/admin/Library/texlive
-/2017/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r.lua)(save: /Users/a
-dmin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/gentiumplus-r
-.luc)(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
-/fonts/otl/texgyretermes-regular.luc)
-fonts : loading './texgyretermes-regular.otf', hash 'texgyretermes-regular'
-otf reader : not unicoded: dblgrave.ts1 idotaccent.sc
-otf reader : 47 bogus names removed (verbose unicode)
-fonts : loading done
-fonts : saving './texgyretermes-regular.otf' in cache(save: /Users/admin/Library
-/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.lua
-)(save: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/o
-tl/texgyretermes-regular.luc)
-fonts : font table: 0x7f8b7dd91720, feature 'locl', script 'latn', no language '
-dflt'(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
-/fonts/otl/amiri-regular.luc)
+!
+system : luatex-fonts.lua loaded in 0.048 seconds) (./luatex-harfbuzz.tex)swigli
+b.hb.core' is loaded> (./example-text.tex
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/gentiumplus-r.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/texgyretermes-regular.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/amiri-regular.luc'
 fonts : loading './amiri-regular.ttf', hash 'amiri-regular'
-otf reader : rule 1 in gsub lookup 's_s_137' has empty lookups
-otf reader : rule 1 in gsub lookup 's_s_190' has empty lookups
-otf reader : merging 6 steps of 'gpos_pair' lookup 'p_s_116'
-otf reader : turning pairs of step 1 of 'gpos_pair' lookup 'p_s_116' into kerns
-otf reader : merging 2 steps of 'gpos_mark2base' lookup 'p_s_118'
-otf reader : 6 steps of 543 removed due to merging
-otf reader : 1 steps of 543 steps turned from pairs into kerns
-otf reader : duplicates: 1 : [space] @ I00003   (U+000A0)
-otf reader : not unicoded: Dot.a Dot.b Dot.b.l FourDots.a FourDots.b FourDots.b.
-l ThreeDots.a ThreeDots.b ThreeDots.b.l TwoDots.a TwoDots.b TwoDots.b.l aAlf.dag
-ger aAlf.fina aAlf.fina.alt aAlf.fina_KafAlf aAlf.fina_KafMemAlf aAlf.fina_LamAl
-fFina aAlf.fina_LamAlfIsol aAlf.fina_MemAlfFina aAlf.fina_Narrow aAlf.isol aAyn.
-fina aAyn.init aAyn.init_AboveHaa aAyn.init_AynHaaInit aAyn.init_AynMemInit aAyn
-.init_AynYaaIsol aAyn.init_Finjani aAyn.init_YaaBari aAyn.isol aAyn.medi aAyn.me
-di_AynYaaFina aBaa.fina aBaa.fina_BaaBaaIsol aBaa.init aBaa.init_AboveHaa aBaa.i
-nit_BaaBaaHaaInit aBaa.init_BaaBaaHeh aBaa.init_BaaBaaIsol aBaa.init_BaaBaaMemIn
-it aBaa.init_BaaBaaYaa aBaa.init_BaaBaaYaaBari aBaa.init_BaaDal aBaa.init_BaaHaa
-Init aBaa.init_BaaHaaMemInit aBaa.init_BaaHehInit aBaa.init_BaaMemHaaInit aBaa.i
-nit_BaaMemInit aBaa.init_BaaMemIsol aBaa.init_BaaNonIsol aBaa.init_BaaRaaIsol aB
-aa.init_BaaSenAltInit aBaa.init_BaaSenInit aBaa.init_BaaYaaIsol aBaa.init_High a
-Baa.init_Wide aBaa.init_YaaBari aBaa.isol aBaa.medi aBaa.medi_BaaBaaHaaInit aBaa
-.medi_BaaBaaInit aBaa.medi_BaaBaaMemInit aBaa.medi_BaaBaaYaa aBaa.medi_BaaHehMed
-i aBaa.medi_BaaMemAlfFina aBaa.medi_BaaMemFina aBaa.medi_BaaNonFina aBaa.medi_Ba
-aRaaFina aBaa.medi_BaaYaaFina aBaa.medi_High aBaa.medi_KafBaaInit aBaa.medi_KafB
-aaMedi aBaa.medi_LamBaaMemInit aBaa.medi_SenBaaMemInit aBaa.medi_YaaBari aDal.fi
-na aDal.fina_BaaDal aDal.fina_KafDal aDal.fina_LamDal aDal.isol aFaa.fina aFaa.i
-nit aFaa.init_FaaHaaInit aFaa.init_FaaMemInit aFaa.init_FaaYaaIsol aFaa.init_Yaa
-Bari aFaa.isol aFaa.medi aFaa.medi_FaaYaaFina aFour.above aFour.below aGaf.fina 
-aGaf.isol aHaa.fina aHaa.fina_AboveHaaIsol aHaa.fina_AboveHaaIsol2 aHaa.init aHa
-a.init_AboveHaa aHaa.init_BaaYaaBari aHaa.init_Finjani aHaa.init_HaaHaaInit aHaa
-.init_HaaMemInit aHaa.init_HaaRaaIsol aHaa.init_HaaYaaIsol aHaa.init_YaaBari aHa
-a.isol aHaa.medi aHaa.medi_1LamHaaHaaInit aHaa.medi_2LamHaaHaaInit aHaa.medi_Ayn
-HaaInit aHaa.medi_BaaBaaHaaInit aHaa.medi_BaaHaaMemInit aHaa.medi_BaaMemHaaInit 
-aHaa.medi_FaaHaaInit aHaa.medi_Finjani aHaa.medi_HaaHaaInit aHaa.medi_LamHaaMemI
-nit aHaa.medi_LamLamHaaInit aHaa.medi_LamMemHaaInit aHaa.medi_MemHaaMemInit aHaa
-.medi_SadHaaInit aHeh.fina aHeh.fina_KafHeh aHeh.fina_LamHeh aHeh.init aHeh.init
-_AboveHaa aHeh.init_HehHaaInit aHeh.init_HehMemInit aHeh.init_HehYaaIsol aHeh.in
-it_YaaBari aHeh.isol aHeh.medi aHeh.medi_BaaHehMedi aHeh.medi_HehYaaFina aHeh.me
-di_LamHehInit aHeh.medi_PostTooth aHehKnotted.fina aHehKnotted.init_YaaBari aHeh
-Knotted.isol aKaf.fina aKaf.fina.alt aKaf.fina_KafKafFina aKaf.fina_LamKafFina a
-Kaf.fina_LamKafIsol aKaf.init aKaf.init.alt aKaf.init_AboveHaa aKaf.init_KafBaaI
-nit aKaf.init_KafHeh aKaf.init_KafLam aKaf.init_KafMemAlf aKaf.init_KafMemInit a
-Kaf.init_KafMemIsol aKaf.init_KafRaaIsol aKaf.init_KafYaaIsol aKaf.init_YaaBari 
-aKaf.isol aKaf.isol.alt aKaf.medi aKaf.medi.alt aKaf.medi_KafBaaMedi aKaf.medi_K
-afHeh aKaf.medi_KafLam aKaf.medi_KafMemAlf aKaf.medi_KafMemFina aKaf.medi_KafMem
-Medi aKaf.medi_KafRaaFina aKaf.medi_KafYaaFina aLam.fina aLam.fina_KafLam aLam.f
-ina_KafMemLam aLam.fina_LamLamFina aLam.fina_LamLamIsol aLam.init aLam.init_LamA
-lfIsol aLam.init_LamBaaMemInit aLam.init_LamHaaHaaInit aLam.init_LamHaaInit aLam
-.init_LamHaaMemInit aLam.init_LamHeh aLam.init_LamHehInit aLam.init_LamLamHaaIni
-t aLam.init_LamLamInit aLam.init_LamMemHaaInit aLam.init_LamMemInit aLam.init_La
-mMemIsol aLam.init_LamRaaIsol aLam.init_LamYaaIsol aLam.init_YaaBari aLam.isol a
-Lam.medi aLam.medi_KafLam aLam.medi_KafLamAlf aLam.medi_KafLamHehIsol aLam.medi_
-KafLamMemFina aLam.medi_KafLamMemMedi aLam.medi_KafLamYaa aLam.medi_KafMemLam aL
-am.medi_LamAlfFina aLam.medi_LamHeh aLam.medi_LamLamAlefFina aLam.medi_LamLamAlf
-Isol aLam.medi_LamLamHaaInit aLam.medi_LamLamHehFina aLam.medi_LamLamHehIsol aLa
-m.medi_LamLamInit aLam.medi_LamLamMedi aLam.medi_LamLamMedi2 aLam.medi_LamLamMem
-Init aLam.medi_LamLamMemMedi aLam.medi_LamLamYaaFina aLam.medi_LamLamYaaIsol aLa
-m.medi_LamMemFina aLam.medi_LamMemMedi aLam.medi_LamQafFina aLam.medi_LamWawFina
- aLam.medi_LamYaaFina aMem.fina aMem.fina.alt aMem.fina_BaaMemFina aMem.fina_Ext
-ended aMem.fina_KafMemFina aMem.fina_KafMemIsol aMem.fina_LamMemFina aMem.fina_P
-ostTooth aMem.init aMem.init_AboveHaa aMem.init_MemHaaInit aMem.init_MemHaaMemIn
-it aMem.init_MemHehInit aMem.init_MemMemInit aMem.init_MemRaaIsol aMem.init_MemY
-aaIsol aMem.init_YaaBari aMem.isol aMem.medi aMem.medi_AlfPostTooth aMem.medi_Ba
-aBaaMemInit aMem.medi_BaaMemAlfFina aMem.medi_BaaMemHaaInit aMem.medi_BaaMemInit
- aMem.medi_KafMemAlf aMem.medi_KafMemMedi aMem.medi_LamBaaMemInit aMem.medi_LamH
-aaMemInit aMem.medi_LamMemHaaInit aMem.medi_LamMemInit aMem.medi_LamMemInitTatwe
-el aMem.medi_LamMemMedi aMem.medi_MemAlfFina aMem.medi_SenBaaMemInit aMem.medi_S
-enMemInit aNon.fina aNon.fina.alt aNon.fina_BaaNonFina aNon.fina_BaaNonIsol aNon
-.isol aNon.isol.alt aQaf.fina aQaf.fina_LamQafFina aQaf.isol aRaa.fina aRaa.fina
-.alt2 aRaa.fina_BaaRaaFina aRaa.fina_BaaRaaIsol aRaa.fina_HaaRaaIsol aRaa.fina_K
-afRaaFina aRaa.fina_KafRaaIsol aRaa.fina_LamRaaIsol aRaa.fina_MemRaaIsol aRaa.fi
-na_PostTooth aRaa.isol aSad.fina aSad.init aSad.init_AboveHaa aSad.init_PreYaa a
-Sad.init_SadHaaInit aSad.init_SadMemInit aSad.init_YaaBari aSad.isol aSad.medi a
-Sad.medi_PreYaa aSen.fina aSen.fina_BaaSen aSen.init aSen.init_AboveHaa aSen.ini
-t_PreYaa aSen.init_SenHaaInit aSen.init_SenMemInit aSen.init_YaaBari aSen.isol a
-Sen.medi aSen.medi_BaaSenAltInit aSen.medi_BaaSenInit aSen.medi_PreYaa aTaa.fina
- aTaa.init aTaa.init_YaaBaree aTaa.isol aTaa.medi aThree.above aTwo.above aWaw.f
-ina aWaw.fina_LamWawFina aWaw.isol aYaa.fina aYaa.fina_BaaBaaYaa aYaa.fina_BaaYa
-aFina aYaa.fina_FaaYaaFina aYaa.fina_KafYaaFina aYaa.fina_KafYaaIsol aYaa.fina_L
-amYaaFina aYaa.fina_PostTooth aYaa.isol aYaa.tail aYaaBari.fina aYaaBari.fina_Po
-stAscender aYaaBari.fina_PostAyn aYaaBari.fina_PostTooth aYaaBari.fina_PostTooth
-Fina aYaaBari.isol damma.mark dash.gaf dash.gaf.alt1 dash.gaf.alt2 dash.kaf dash
-.kaf_gaf dot.1 dot.2 dot.alt1 dot.percent hThreeDots.a hThreeDots.b hThreeDots.b
-.l hamza.above.wavy hamza.kaf hamza.wasl hamzadamma.mark iThreeDots.a iThreeDots
-.b iThreeDots.b.l smalltaa.above smalltaa.below smallv.above smallv.above.invert
-ed smallv.below smallv.below.inverted smallv.below.inverted.low smallv.below.low
- stroke tatwil.one_LamKaf twostrokes.below vTwoDots.a vTwoDots.b vTwoDots.b.l
-otf reader : 1326 bogus names removed (verbose unicode)
-otf reader : 6382 base class tags removed (default is base)
+fonts : loading (extended) adobe glyph list
 fonts : loading done
-fonts : saving './amiri-regular.ttf' in cache(save: /Users/admin/Library/texlive
-/2017/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular.lua)(save: /Users/a
-dmin/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/amiri-regular
-.luc)
-fonts : font table: 0x7f8b7e757ce0, feature 'locl', script 'latn', no language '
-dflt'(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
-/fonts/otl/syrcombatnan.luc)
-fonts : loading './SyrCOMBatnan.otf', hash 'syrcombatnan'
-otf reader : not unicoded: bulletmath
-otf reader : 81 bogus names removed (verbose unicode)
-otf reader : 177 base class tags removed (default is base)
-fonts : loading done
-fonts : saving './SyrCOMBatnan.otf' in cache(save: /Users/admin/Library/texlive/
-2017/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lua)(save: /Users/adm
-in/Library/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/syrcombatnan.lu
-c)(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic/fo
-nts/otl/chandas.luc)
-fonts : loading './chandas.ttf', hash 'chandas'
-otf reader : ignoring empty kern table of feature 'kern'
-otf reader : not unicoded: Breve Circumflex Dotaccent Doubleacute GYksha Gcksha 
-GkshGa Gtba Gthma IT1 LjYa Lna Tilde Tnba Tthma Tyya Yjba Yjva ardhaDhm0 ardhaDh
-m1 ardhaDhy0 ardhaDhy1 ardhaDhy2 ardhaDhy3 ardhaDm0 ardhaDm1 ardhaDm2 ardhaDy0 a
-rdhaDy1 ardhaDy2 ardhaDy3 ardhaGm0 ardhaGm1 ardhaGm2 ardhaGy0 ardhaGy1 ardhaGy2 
-ardhaGy3 ardhaNn0 ardhaNn1 ardhaNn2 ardhaNr0 ardhaNr1 ardhaNr2 ardhaThm0 ardhaTh
-m1 ardhaThy0 ardhaThy1 ardhaThy2 ardhaThy3 ardhaTm0 ardhaTm1 ardhaTy0 ardhaTy1 a
-rdhaTy2 ardhaTy3 ardhaY0 ardhaY1 ardhaY10 ardhaY2 ardhaY3 ardhaY4 ardhaY5 ardhaY
-6 ardhaY7 ardhaY8 ardhaY9 ardhaYY0 ardhaYY1 ardhaYY2 ardhaYY3 ardhaYY4 ardhaYY5 
-ardhaYY6 ardhaYc0 ardhaYc1 ardhaYc2 ardhaYc3 ardhaYc4 ardhaYj0 ardhaYj1 ardhaYj2
- ardhaYj3 ardhaYj4 ardhaYj5 ardhaYj6 ardhaYjY0 ardhaYjY1 ardhaYjY2 ardhaYjY3 ard
-haYjY4 ardhaYjY5 ardhaYjY6 ardhaYn0 ardhaYn1 ardhaYn2 ardhaYr0 ardhaYr1 ardhaYr2
- ardhaYr3 ardhaYr4 ardhab0 ardhab1 ardhab10 ardhab2 ardhab3 ardhab4 ardhab5 ardh
-ab6 ardhab7 ardhab8 ardhab9 ardhabh0 ardhabh1 ardhabh2 ardhabh3 ardhabh4 ardhabh
-5 ardhabh6 ardhabh7 ardhabh8 ardhabhY0 ardhabhY1 ardhabhY2 ardhabhY3 ardhabhY4 a
-rdhabhY5 ardhabhc0 ardhabhc1 ardhabhc2 ardhabhj0 ardhabhj1 ardhabhj2 ardhabhn0 a
-rdhabhn1 ardhabhr0 ardhabhr1 ardhabhr2 ardhabhr3 ardhabj0 ardhabj1 ardhabj2 ardh
-abj3 ardhabj4 ardhabj5 ardhabj6 ardhabjY0 ardhabjY1 ardhabjY2 ardhabjY3 ardhabjY
-4 ardhabjY5 ardhabjY6 ardhabn0 ardhabn1 ardhabr0 ardhabr1 ardhabr2 ardhac0 ardha
-c1 ardhac10 ardhac11 ardhac12 ardhac13 ardhac14 ardhac15 ardhac16 ardhac17 ardha
-c2 ardhac3 ardhac4 ardhac5 ardhac6 ardhac7 ardhac8 ardhac9 ardhacY0 ardhacY1 ard
-hacY2 ardhacY3 ardhacY4 ardhacc0 ardhacc1 ardhachm0 ardhachm1 ardhachy0 ardhachy
-1 ardhachy2 ardhachy3 ardhacj0 ardhacj1 ardhacj2 ardhacjY0 ardhacjY1 ardhacjY2 a
-rdhacn0 ardhacn1 ardhacn2 ardhacr0 ardhacr1 ardhacr2 ardhacr3 ardhadh0 ardhadh1 
-ardhadh10 ardhadh11 ardhadh12 ardhadh13 ardhadh2 ardhadh3 ardhadh4 ardhadh5 ardh
-adh6 ardhadh7 ardhadh8 ardhadh9 ardhadhY0 ardhadhY1 ardhadhY2 ardhadhY3 ardhadhY
-4 ardhadhc0 ardhadhc1 ardhadhc2 ardhadhc3 ardhadhj0 ardhadhj1 ardhadhj2 ardhadhj
-3 ardhadhn0 ardhadhn1 ardhadhn2 ardhadhr0 ardhadhr1 ardhadhr2 ardhadhr3 ardhadm0
- ardhadm1 ardhady0 ardhady1 ardhady2 ardhady3 ardhagh0 ardhagh1 ardhagh10 ardhag
-h2 ardhagh3 ardhagh4 ardhagh5 ardhagh6 ardhagh7 ardhagh8 ardhaghY0 ardhaghY1 ard
-haghY2 ardhaghY3 ardhaghY4 ardhaghc0 ardhaghc1 ardhaghc2 ardhaghc3 ardhaghj0 ard
-haghj1 ardhaghj2 ardhaghj3 ardhaghn0 ardhaghn1 ardhaghn2 ardhaghr0 ardhaghr1 ard
-haghr2 ardhagj0 ardhagj1 ardhagj2 ardhagj3 ardhagn0 ardhagn1 ardhagn2 ardhagr0 a
-rdhagr1 ardhagr2 ardhah0 ardhah1 ardhah2 ardhah3 ardhah4 ardhahN0 ardhahN1 ardha
-hY0 ardhahY1 ardhahY2 ardhahj0 ardhahjY0 ardhahl0 ardhahl1 ardhahl2 ardhahm0 ard
-hahm1 ardhahm2 ardhahn0 ardhahn1 ardhahr0 ardhahr1 ardhahy0 ardhahy1 ardhahy2 ar
-dhahy3 ardhaj0 ardhaj1 ardhaj2 ardhaj3 ardhaj4 ardhaj5 ardhaj6 ardhaj7 ardhaj8 a
-rdhaj9 ardhajY0 ardhajY1 ardhajY2 ardhajY3 ardhajY4 ardhajY5 ardhajY6 ardhajYY0 
-ardhajYY1 ardhajYY2 ardhajYY3 ardhajYY4 ardhajYc0 ardhajYc1 ardhajYc2 ardhajYj0 
-ardhajYj1 ardhajYj2 ardhajYj3 ardhajYj4 ardhajYjY0 ardhajYjY1 ardhajYjY2 ardhajY
-jY3 ardhajYjY4 ardhajYn0 ardhajYn1 ardhajYr0 ardhajYr1 ardhajYr2 ardhajYr3 ardha
-jc0 ardhajc1 ardhajc2 ardhajh0 ardhajh1 ardhajh10 ardhajh11 ardhajh12 ardhajh13 
-ardhajh2 ardhajh3 ardhajh4 ardhajh5 ardhajh6 ardhajh7 ardhajh8 ardhajh9 ardhajhn
-0 ardhajhn1 ardhajhn2 ardhajhr0 ardhajhr1 ardhajhr2 ardhajhr3 ardhajhr4 ardhajhr
-5 ardhajhr6 ardhajj0 ardhajj1 ardhajj2 ardhajj3 ardhajj4 ardhajjY0 ardhajjY1 ard
-hajjY2 ardhajjY3 ardhajjY4 ardhajn0 ardhajn1 ardhajn2 ardhajr0 ardhajr1 ardhajr2
- ardhajr3 ardhajr4 ardhajr5 ardhak0 ardhak1 ardhak2 ardhak3 ardhak4 ardhak5 ardh
-akD0 ardhakG0 ardhakY0 ardhakb0 ardhakc0 ardhakh0 ardhakhn0 ardhakhr0 ardhakhr1 
-ardhakhr2 ardhakj0 ardhakjY0 ardhakk0 ardhakl0 ardhakl1 ardhakm0 ardhakm1 ardhak
-n0 ardhakr0 ardhakr1 ardhaksh0 ardhaksh1 ardhaksh2 ardhaksh3 ardhaksh4 ardhaksh5
- ardhaksh6 ardhakshn0 ardhakshn1 ardhakshn2 ardhakshr0 ardhakshr1 ardhakshr2 ard
-hakshr3 ardhakshr4 ardhakt0 ardhakt1 ardhakt2 ardhaktY1 ardhaktb1 ardhaktc1 ardh
-aktj1 ardhaktjY1 ardhaktl1 ardhaktm0 ardhaktm1 ardhaktn1 ardhaktr1 ardhaktt1 ard
-haktv1 ardhakty0 ardhakty1 ardhakv0 ardhaky0 ardhaky1 ardhaky2 ardhaky3 ardhal0 
-ardhal1 ardhal2 ardhal3 ardhal4 ardhal5 ardhal6 ardhal7 ardhalY0 ardhalY1 ardhal
-Y2 ardhalY3 ardhalY4 ardhalb0 ardhalb1 ardhalb2 ardhalb3 ardhalc0 ardhalc1 ardha
-lc2 ardhalc3 ardhalc4 ardhalc5 ardhalj0 ardhalj1 ardhalj2 ardhalj3 ardhaljY0 ard
-haljY1 ardhaljY2 ardhaljY3 ardhaln0 ardhaln1 ardhaln2 ardhalr0 ardhalr1 ardhalr2
- ardhalr3 ardhalr4 ardhalv0 ardhalv1 ardhalv2 ardhalv3 ardham0 ardham1 ardham10 
-ardham2 ardham3 ardham4 ardham5 ardham6 ardham7 ardham8 ardham9 ardhamY0 ardhamY
-1 ardhamY2 ardhamY3 ardhamY4 ardhamY5 ardhamc0 ardhamc1 ardhamc2 ardhamc3 ardham
-c4 ardhamc5 ardhamc6 ardhamc7 ardhamc8 ardhamj0 ardhamj1 ardhamj2 ardhamj3 ardha
-mjY0 ardhamjY1 ardhamjY2 ardhamjY3 ardhamn0 ardhamn1 ardhamr0 ardhamr1 ardhamr2 
-ardhamr3 ardhan0 ardhan1 ardhan10 ardhan11 ardhan12 ardhan13 ardhan14 ardhan2 ar
-dhan3 ardhan4 ardhan5 ardhan6 ardhan7 ardhan8 ardhan9 ardhanY0 ardhanY1 ardhanY2
- ardhanY3 ardhanY4 ardhanY5 ardhanc0 ardhanc1 ardhanc2 ardhanc3 ardhanc4 ardhanc
-5 ardhanc6 ardhanj0 ardhanj1 ardhanj2 ardhanj3 ardhanjY0 ardhanjY1 ardhanjY2 ard
-hanjY3 ardhann0 ardhann1 ardhanr0 ardhanr1 ardhant0 ardhant1 ardhant2 ardhant3 a
-rdhantY0 ardhantY1 ardhantY2 ardhantY3 ardhantb0 ardhantb1 ardhantb2 ardhantb3 a
-rdhantc0 ardhantc1 ardhantc2 ardhantc3 ardhantc4 ardhantc5 ardhantc6 ardhantc7 a
-rdhantj0 ardhantj1 ardhantj2 ardhantjY0 ardhantjY1 ardhantjY2 ardhantl0 ardhantl
-1 ardhantl2 ardhantl3 ardhantn0 ardhantn1 ardhantr0 ardhantr1 ardhantv0 ardhantv
-1 ardhantv2 ardhantv3 ardhanuktaY0 ardhanuktab0 ardhanuktabh0 ardhanuktac0 ardha
-nuktadh0 ardhanuktagh0 ardhanuktah0 ardhanuktaj0 ardhanuktajh0 ardhanuktak0 ardh
-anuktakh0 ardhanuktal0 ardhanuktam0 ardhanuktan0 ardhanuktap0 ardhanuktaph0 ardh
-anuktas0 ardhanuktash0 ardhanuktat0 ardhanuktath0 ardhanuktav0 ardhanuktay0 ardh
-ap0 ardhap1 ardhap10 ardhap2 ardhap3 ardhap4 ardhap5 ardhap6 ardhap7 ardhap8 ard
-hap9 ardhapY0 ardhapY1 ardhapY2 ardhapY3 ardhapY4 ardhapY5 ardhaparakr ardhapara
-tr ardhaparatr1 ardhapc0 ardhapc1 ardhapc2 ardhapc3 ardhapc4 ardhapc5 ardhaph0 a
-rdhaph1 ardhaph2 ardhaph3 ardhaph4 ardhaphD0 ardhaphG0 ardhaphY0 ardhaphb0 ardha
-phc0 ardhaphj0 ardhaphjY0 ardhaphk0 ardhaphl0 ardhaphl1 ardhaphm0 ardhaphm1 ardh
-aphn0 ardhaphr0 ardhaphr1 ardhaphv0 ardhaphy0 ardhaphy1 ardhaphy2 ardhaphy3 ardh
-apj0 ardhapj1 ardhapj2 ardhapn0 ardhapn1 ardhapr0 ardhapr1 ardhapr2 ardhapt0 ard
-hapt1 ardhapt2 ardhas0 ardhas1 ardhas10 ardhas11 ardhas12 ardhas13 ardhas14 ardh
-as2 ardhas3 ardhas4 ardhas5 ardhas6 ardhas7 ardhas8 ardhas9 ardhasY0 ardhasY1 ar
-dhasY2 ardhasY3 ardhasY4 ardhasb0 ardhasb1 ardhasb2 ardhasc0 ardhasc1 ardhasc2 a
-rdhasc3 ardhasc4 ardhasc5 ardhash0 ardhash1 ardhash2 ardhash3 ardhash4 ardhash5 
-ardhashY0 ardhashY1 ardhashY2 ardhashY3 ardhashY4 ardhashY5 ardhashc0 ardhashc1 
-ardhashc2 ardhashc3 ardhashc4 ardhashc5 ardhashj0 ardhashj1 ardhashj2 ardhashn0 
-ardhashn1 ardhashr0 ardhashr1 ardhashr2 ardhasht0 ardhasht1 ardhasht2 ardhasj0 a
-rdhasj1 ardhasj2 ardhasjY0 ardhasjY1 ardhasjY2 ardhasl ardhasl0 ardhasl1 ardhasl
-2 ardhasn0 ardhasn1 ardhasr0 ardhasr1 ardhasr2 ardhasv0 ardhasv1 ardhasv2 ardhat
-0 ardhat1 ardhat2 ardhat3 ardhat4 ardhat5 ardhat6 ardhat7 ardhat8 ardhatY0 ardha
-tY1 ardhatY2 ardhatY3 ardhatb0 ardhatb1 ardhatb2 ardhatb3 ardhatc0 ardhatc1 ardh
-atc2 ardhatc3 ardhatc4 ardhatc5 ardhatc6 ardhatc7 ardhath0 ardhath1 ardhath10 ar
-dhath2 ardhath3 ardhath4 ardhath5 ardhath6 ardhath7 ardhath8 ardhath9 ardhathY0 
-ardhathY1 ardhathY2 ardhathY3 ardhathY4 ardhathY5 ardhathc0 ardhathc1 ardhathc2 
-ardhathc3 ardhathj0 ardhathj1 ardhathj2 ardhathn0 ardhathn1 ardhathr0 ardhathr1 
-ardhatj0 ardhatj1 ardhatj2 ardhatjY0 ardhatjY1 ardhatjY2 ardhatl0 ardhatl1 ardha
-tl2 ardhatl3 ardhatn0 ardhatn1 ardhatr0 ardhatr1 ardhatt0 ardhatt1 ardhatt2 ardh
-att3 ardhattY0 ardhattY1 ardhattY2 ardhattY3 ardhattb0 ardhattb1 ardhattb2 ardha
-ttb3 ardhattc0 ardhattc1 ardhattc2 ardhattc3 ardhattc4 ardhattc5 ardhattc6 ardha
-ttc7 ardhattj0 ardhattj1 ardhattj2 ardhattjY0 ardhattjY1 ardhattjY2 ardhattl0 ar
-dhattl1 ardhattl2 ardhattl3 ardhattn0 ardhattn1 ardhattr0 ardhattr1 ardhattv0 ar
-dhattv1 ardhattv2 ardhattv3 ardhatv0 ardhatv1 ardhatv2 ardhatv3 ardhav0 ardhav1 
-ardhav10 ardhav2 ardhav3 ardhav4 ardhav5 ardhav6 ardhav7 ardhav8 ardhav9 ardhavj
-0 ardhavj1 ardhavj2 ardhavj3 ardhavj4 ardhavj5 ardhavj6 ardhavjY0 ardhavjY1 ardh
-avjY2 ardhavjY3 ardhavjY4 ardhavjY5 ardhavjY6 ardhavn0 ardhavn1 ardhavr0 ardhavr
-1 ardhavr2 ardhay0 ardhay1 ardhay10 ardhay11 ardhay2 ardhay4 ardhay5 ardhay6 ard
-hay7 ardhay8 ardhay9 ardhayY0 ardhayY1 ardhayY2 ardhayY3 ardhayY4 ardhayY5 ardha
-yc0 ardhayc1 ardhayc2 ardhayc3 ardhayj0 ardhayj1 ardhayj2 ardhayn0 ardhayn1 ardh
-ayr0 ardhayr1 ardhayr2 ardhaz1 ardhaz2 ardhaz3 ardhazY0 ardhazY1 ardhazY2 ardhaz
-Y3 ardhazY4 ardhazb0 ardhazb1 ardhazb2 ardhazc0 ardhazc1 ardhazc2 ardhazc3 ardha
-zc4 ardhazc5 ardhazj0 ardhazj1 ardhazj2 ardhazjY0 ardhazjY1 ardhazjY2 ardhazl0 a
-rdhazl1 ardhazl2 ardhazn0 ardhazn1 ardhazr0 ardhazr1 ardhazv0 ardhazv1 ardhazv2 
-dlLtcaron hnma hnya jba jhDha jjca jka jva ksma mjba mjva njba njva parakra para
-krma parakrya paratra shkca
-otf reader : 321 bogus names removed (verbose unicode)
-otf reader : 4940 base class tags removed (default is base)
-fonts : loading done
-fonts : saving './chandas.ttf' in cache(save: /Users/admin/Library/texlive/2017/
-texmf-var/luatex-cache/generic/fonts/otl/chandas.lua)(save: /Users/admin/Library
-/texlive/2017/texmf-var/luatex-cache/generic/fonts/otl/chandas.luc)
-otf : adding devanagari features to font [1{/usr/local/texlive/2017/texmf-var/fo
+fonts : saving './amiri-regular.ttf' in cache
+system : saving lua file '/Users/admin/Library/texlive/2019/texmf-var/luatex-cac
+he/generic/fonts/otl/amiri-regular.lua'
+system : saving luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-cac
+he/generic/fonts/otl/amiri-regular.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/syrcombatnan.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/chandas.luc'
+otf : adding devanagari features to font [1{/usr/local/texlive/2019/texmf-var/fo
 nts/map/pdftex/updmap/pdftex.map}] [2]) [3])<./GentiumPlus-R.ttf><./texgyreterme
 s-regular.otf><./chandas.ttf><./SyrCOMBatnan.otf><./amiri-regular.ttf><./Gentium
-Plus-R.ttf></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+Plus-R.ttf></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r10.pfb>
-Output written on example-luatex-swig.pdf (3 pages, 146439 bytes).
+Output written on example-luatex-swig.pdf (3 pages, 146744 bytes).
 
 PDF statistics: 60 PDF objects out of 1000 (max. 8388607)
  35 compressed objects within 1 object stream

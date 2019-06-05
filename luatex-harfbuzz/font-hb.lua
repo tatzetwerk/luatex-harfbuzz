@@ -65,15 +65,7 @@ local localpar_code      = nodecodes.localpar
 local fonthashes         = fonts.hashes
 local fontdata           = fonthashes.identifiers
 
-local nodes_handlers_protectglyphs = nodes.handlers.protectglyphs
-function nodes.handlers.protectglyphs(head)
-	nodes_handlers_protectglyphs(head)
-	for n in node.traverse_id(disc_code,head) do
-		if n.pre then nodes_handlers_protectglyphs(n.pre) end
-		if n.post then nodes_handlers_protectglyphs(n.post) end
-		if n.replace then nodes_handlers_protectglyphs(n.replace) end
-	end
-end
+utf = utf or (unicode and unicode.utf8) or { }
 
 local function deldisc(head)
 	local current, next, ok = head, nil, false
@@ -192,7 +184,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 		local c, nodebuf = start, {}
 		while c and c~=stop do
 			nodebuf[clusterstop] = c
-			clusterstop=clusterstop+string.len(unicode.utf8.char(getchar(c) or 0x0020))
+			clusterstop=clusterstop+string.len(utf.char(getchar(c) or 0x0020))
 			c = getnext(c)
 		end
 
@@ -344,7 +336,7 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 				startrlmode = rlmode
 			end
 			local char = getchar(current)
-			text = text .. unicode.utf8.char(char)
+			text = text .. utf.char(char)
 			current = getnext(current)
 		elseif id == disc_code then
 			local pre, post, currentnext = nil, nil, getnext(current)

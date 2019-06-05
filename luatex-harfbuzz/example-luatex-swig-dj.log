@@ -1,18 +1,19 @@
-This is LuaTeX, Version 1.0.4 (TeX Live 2017)  (format=luatex 2017.8.7)  15 AUG 2017 09:54
+This is LuaTeX, Version 1.10.0 (TeX Live 2019)  (format=luatex 2019.6.4)  5 JUN 2019 14:08
  restricted system commands enabled.
 **example-luatex-swig-dj
 (./example-luatex-swig-dj.tex
-(/usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex/luatex-basics.te
+(/usr/local/texlive/2019/texmf-dist/tex/generic/context/luatex/luatex-basics.te
 x
 \lastallocatedattribute=\count27
 \lastallocatedluafunction=\count28
 )
-(/usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex/luatex-fonts.tex
- <push namespace> </usr/local/texlive/2017/texmf-dist/tex/generic/context/luatex
-/luatex-fonts-merged.lua>(using write cache: /Users/admin/Library/texlive/2017/t
-exmf-var/luatex-cache/generic)(using read cache: /usr/local/texlive/2017/texmf-v
-ar/luatex-cache/generic /Users/admin/Library/texlive/2017/texmf-var/luatex-cache
-/generic)
+(/usr/local/texlive/2019/texmf-dist/tex/generic/context/luatex/luatex-fonts.tex
+system : loading '/usr/local/texlive/2019/texmf-dist/tex/generic/context/luatex/
+luatex-fonts-merged.lua'
+system : using write cache '/Users/admin/Library/texlive/2019/texmf-var/luatex-c
+ache/generic'
+system : using read cache '/usr/local/texlive/2019/texmf-var/luatex-cache/generi
+c /Users/admin/Library/texlive/2019/texmf-var/luatex-cache/generic'
 !
 ! Attribute 0 is reserved for ConTeXt's font feature management and has to be
 ! set to zero. Also, some attributes in the range 1-255 are used for special
@@ -26,24 +27,33 @@ ar/luatex-cache/generic /Users/admin/Library/texlive/2017/texmf-var/luatex-cache
 ! updated libraries. The merged version is not supported as it
 ! is a frozen instance. Problems can be reported to the ConTeXt
 ! mailing list.
-! <luatex-fonts.lua loaded in 0.046 seconds> <pop namespace>)
-(./luatex-harfbuzz.tex)swiglib.hb_deepak.luaharfbuzz' is loaded>
-(./example-text.tex(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex
--cache/generic/fonts/otl/gentiumplus-r.luc)(load luc: /Users/admin/Library/texli
-ve/2017/texmf-var/luatex-cache/generic/fonts/otl/texgyretermes-regular.luc)
-fonts : font table: 0x7ffa2ee6e040, feature 'locl', script 'latn', no language '
-dflt'(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
-/fonts/otl/amiri-regular.luc)
-fonts : font table: 0x7ffa2f531e80, feature 'locl', script 'latn', no language '
-dflt'(load luc: /Users/admin/Library/texlive/2017/texmf-var/luatex-cache/generic
-/fonts/otl/syrcombatnan.luc)(load luc: /Users/admin/Library/texlive/2017/texmf-v
-ar/luatex-cache/generic/fonts/otl/chandas.luc)
-otf : adding devanagari features to font [1{/usr/local/texlive/2017/texmf-var/fo
+!
+system : luatex-fonts.lua loaded in 0.041 seconds) (./luatex-harfbuzz.tex)swigli
+b.hb_deepak.luaharfbuzz' is loaded> (./example-text.tex
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/gentiumplus-r.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/texgyretermes-regular.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/amiri-regular.luc'
+fonts : loading './amiri-regular.ttf', hash 'amiri-regular'
+fonts : loading (extended) adobe glyph list
+fonts : loading done
+fonts : saving './amiri-regular.ttf' in cache
+system : saving lua file '/Users/admin/Library/texlive/2019/texmf-var/luatex-cac
+he/generic/fonts/otl/amiri-regular.lua'
+system : saving luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-cac
+he/generic/fonts/otl/amiri-regular.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/syrcombatnan.luc'
+system : loading luc file '/Users/admin/Library/texlive/2019/texmf-var/luatex-ca
+che/generic/fonts/otl/chandas.luc'
+otf : adding devanagari features to font [1{/usr/local/texlive/2019/texmf-var/fo
 nts/map/pdftex/updmap/pdftex.map}] [2]) [3])<./GentiumPlus-R.ttf><./texgyreterme
 s-regular.otf><./chandas.ttf><./SyrCOMBatnan.otf><./amiri-regular.ttf><./Gentium
-Plus-R.ttf></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+Plus-R.ttf></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r10.pfb>
-Output written on example-luatex-swig-dj.pdf (3 pages, 146439 bytes).
+Output written on example-luatex-swig-dj.pdf (3 pages, 146744 bytes).
 
 PDF statistics: 60 PDF objects out of 1000 (max. 8388607)
  35 compressed objects within 1 object stream
