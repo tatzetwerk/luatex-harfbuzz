@@ -165,30 +165,44 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 		local opts = tfmdata_shared.opts
 		opts.direction = rlmode < 0 and "rtl" or "ltr"
 
-		hb.shape(hb_font, buf, opts, tfmdata_shared.shaper)
-
-		if rlmode < 0 then
-			buf:reverse()
-		end
-		local glyphs = buf:get_glyph_infos_and_positions()
-
-		local n, nn, prev = nil, nil, nil
 		if start ~= head then
 			prev = getprev(start)
 		else
 			prev = nil
 		end
 
-		local clusterstart = string.len(startglue)
-		local clusterstop = clusterstart
-		local c, nodebuf = start, {}
-		while c and c~=stop do
-			nodebuf[clusterstop] = c
-			clusterstop=clusterstop+string.len(utf.char(getchar(c) or 0x0020))
-			c = getnext(c)
+		local n, nn, clusterstart, clusterstop = nil, nil, nil, nil
+		local glyphs, nodebuf = {}, {}
+		if hb.shape(hb_font, buf, opts, tfmdata_shared.shaper) then
+			if rlmode < 0 then
+				buf:reverse()
+			end
+			glyphs = buf:get_glyph_infos_and_positions()
+
+			clusterstart = string.len(startglue)
+			clusterstop = clusterstart
+			local c = start
+			while c and c~=stop do
+				nodebuf[clusterstop] = c
+				clusterstop=clusterstop+string.len(utf.char(getchar(c) or 0x0020))
+				c = getnext(c)
+			end
 		end
 
 		local k, v, vnext = next(glyphs)
+
+		if not v then
+			setprev(start,nil)
+			if stop then
+				setnext(getprev(stop),nil)
+			end
+			flush_list(start)
+			nn = prev
+			if not nn then
+				head = stop
+			end
+		end
+
 		while v do
 			local char = cptochar[v.codepoint]
 			local cluster = v.cluster
@@ -307,10 +321,10 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			v = vnext
 		end
 		if stop then
-			setnext(nn,stop)
 			setprev(stop,nn)
-		else
-			setnext(nn,nil)
+		end
+		if nn then
+			setnext(nn,stop)
 		end
 	end
 

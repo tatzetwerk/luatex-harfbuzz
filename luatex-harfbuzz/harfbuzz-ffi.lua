@@ -684,7 +684,7 @@ hb.shape = function(font, buf, options, shaper)
 
 	local shapers = shaper ~= "" and ffi.new("const char *const[?]", 0, {shaper}) or nil
 
-	harfbuzz.hb_shape_full(font, buf, features, num_features, shapers)
+	return harfbuzz.hb_shape_full(font, buf, features, num_features, shapers)
 end
 
 local Buffer
