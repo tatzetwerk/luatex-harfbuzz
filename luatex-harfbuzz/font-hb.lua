@@ -240,7 +240,9 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						components = nil
 					end
 				else
-					nn = new_kern(int(diff * factor + .5))
+					if diff ~= 0 then
+						nn = new_kern(int(diff * factor + .5))
+					end
 				end
 				if n and nn then
 					if rlmode < 0 then
