@@ -189,6 +189,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			end
 		end
 
+		local prevglue = nil
 		local k, v, vnext = next(glyphs)
 
 		if not v then
@@ -232,8 +233,10 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						if diff ~= 0 then
 							setwidth(n,(int(diff * factor + .5) + getwidth(n)))
 						end
+						prevglue = n
 					else
 						n = new_kern(int((diff+spacewidth) * factor + .5))
+						prevglue = nil
 					end
 					if components then
 						flush_list(components)
@@ -241,8 +244,13 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 					end
 				else
 					if diff ~= 0 then
-						nn = new_kern(int(diff * factor + .5))
+						if prevglue then
+							setwidth(prevglue,getwidth(prevglue) + int(diff * factor + .5))
+						else
+							nn = new_kern(int(diff * factor + .5))
+						end
 					end
+					prevglue = nil
 				end
 				if n and nn then
 					if rlmode < 0 then
@@ -287,10 +295,14 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						setoffsets(n,0,int(v.y_offset * factor + .5))
 						local kern = int((v.x_advance - v.x_offset) * factor + .5) - getwidth(n)
 						if kern ~= 0 then
-							nn = new_kern(kern)
-							n, nn = nn, n
-							setnext(n,nn)
-							setprev(nn,n)
+							if prevglue then
+								setwidth(prevglue,getwidth(prevglue) + kern)
+							else
+								nn = new_kern(kern)
+								n, nn = nn, n
+								setnext(n,nn)
+								setprev(nn,n)
+							end
 						end
 						kern = int(v.x_offset * factor + .5)
 						if kern ~= 0 then
@@ -301,6 +313,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						end
 					end
 				end
+				prevglue = nil
 			end
 			
 			if n and not nn then
