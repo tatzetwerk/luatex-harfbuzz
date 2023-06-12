@@ -685,7 +685,7 @@ hb.shape = function(font, buf, options, shaper)
 	-- to set the right properties.
 	buf:guess_segment_properties()
 
-	local shapers = shaper ~= "" and ffi.new("const char *const[?]", 0, {shaper}) or nil
+	local shapers = shaper ~= "" and ffi.new("const char *const[?]", 1, {shaper}) or nil
 
 	return harfbuzz.hb_shape_full(font, buf, features, num_features, shapers)
 end
