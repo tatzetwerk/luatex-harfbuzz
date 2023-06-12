@@ -572,6 +572,9 @@ hb_version_string (void);
 hb_font_t *
 hb_ft_font_create (FT_Face           ft_face,
 		   hb_destroy_func_t destroy);
+
+const char **
+hb_shape_list_shapers (void);
 ]]
 
 local hb = hb or {}
@@ -747,6 +750,17 @@ end
 
 function hb.version()
 	return ffi.string(harfbuzz.hb_version_string())
+end
+
+function hb.list_shapers()
+	local t = {}
+	local s = harfbuzz.hb_shape_list_shapers()
+	local i = 0;
+	while s[i] ~= nil do
+		t[#t+1] = ffi.string(s[i])
+		i = i + 1
+	end
+	return t
 end
 
 return hb
