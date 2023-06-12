@@ -39,9 +39,9 @@ local getkern            = nuts.getkern
 local setkern            = nuts.setkern
 
 local copy_node          = nuts.copy
-local copy_node_list     = nuts.copy_list
+local copy_node_list     = node.direct.copy_list
 local find_node_tail     = nuts.tail
-local flush_list         = nuts.flush_list
+local flush_list         = node.direct.flush_list
 local free_node          = nuts.free
 local new_node           = nuts.new
 local end_of_math        = nuts.end_of_math
@@ -61,6 +61,7 @@ local kern_code          = nodecodes.kern
 local math_code          = nodecodes.math
 local dir_code           = nodecodes.dir
 local localpar_code      = nodecodes.localpar
+local whatsit_code       = nodecodes.whatsit
 
 local fonthashes         = fonts.hashes
 local fontdata           = fonthashes.identifiers
@@ -97,7 +98,7 @@ local function deldisc(head)
 		local current, ok = head, ""
 		while current do
 			if getid(current) == glyph_code then
-				if getchar(current) < 128 then 
+				if getchar(current) < 128 then
 					ok = ok..string.char(getchar(current))
 				else
 					ok = ok.."["..fonts.mappings.tounicode16(getchar(current)).."]"
@@ -141,7 +142,7 @@ local function equalnode(n, m)
 			if d_replace then d_replace = getnext(d_replace) else break end
 		end
 		if not ok or c_replace or d_replace then return false end
-		return true	
+		return true
 	end
 --	texio.write_nl("Warning: comparing nodes of type "..node.type(getid(n)))
 	return false
@@ -150,7 +151,7 @@ end
 local function int(x) return x-x%1 end
 
 local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
-	if start then
+	if text ~= "" and start then
 		local buf = hb.Buffer.new()
 		buf:add_utf8(startglue..text..stopglue)
 
@@ -172,7 +173,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 		end
 
 		local n, nn, clusterstart, clusterstop = nil, nil, nil, nil
-		local glyphs, nodebuf = {}, {}
+		local glyphs, nodebuf, whatsit = {}, {}, {}
 		if hb.shape(hb_font, buf, opts, tfmdata_shared.shaper) then
 			if rlmode < 0 then
 				buf:reverse()
@@ -184,12 +185,24 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			local c = start
 			while c and c~=stop do
 				nodebuf[clusterstop] = c
+				whatsit[c] = nil
 				clusterstop=clusterstop+string.len(utf.char(getchar(c) or 0x0020))
-				c = getnext(c)
+				local cnext = getnext(c)
+				if cnext and getid(cnext) == whatsit_code then
+					local lastcnext = cnext
+					whatsit[c] = cnext
+					cnext = getnext(cnext)
+					while cnext and getid(cnext) == whatsit_code do
+						lastcnext = cnext
+						cnext = getnext(cnext)
+					end
+					setnext(lastcnext,nil)
+				end
+				c = cnext
 			end
 		end
 
-		local prevglue = nil
+		local prevglue, prevkern, whatsits = nil, nil, nil
 		local k, v, vnext = next(glyphs)
 
 		if not v then
@@ -221,6 +234,18 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			if components then
 				setprev(components,nil)
 				setnext(lastcomp,nil)
+				local c = components
+				while c do
+					if whatsit[c] then
+						if not whatsits then
+							whatsits = whatsit[c]
+						else
+							setprev(whatsit[c],find_node_tail(whatsits))
+							setnext(find_node_tail(whatsits),whatsit[c])
+						end
+					end
+					c = getnext(c)
+				end
 			end
 
 			n, nn = nil, nil
@@ -230,10 +255,22 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 					n = nodebuf[cluster]
 					if getid(n) == glue_code then
 						n = copy_node(n)
+						if diff == 0 then
+							if prevkern then
+								diff = int(getkern(prevkern) / factor + .5)
+								prev = getprev(prevkern)
+								if prevkern == head then head = getnext(prevkern) else setnext(getprev(prevkern),getnext(prevkern)) end
+								if getnext(prevkern) then setprev(getnext(prevkern),getprev(prevkern)) end
+								free_node(prevkern)
+								prevkern = nil
+							end
+							prevglue = n
+						else
+							prevglue = nil
+						end
 						if diff ~= 0 then
 							setwidth(n,(int(diff * factor + .5) + getwidth(n)))
 						end
-						prevglue = n
 					else
 						n = new_kern(int((diff+spacewidth) * factor + .5))
 						prevglue = nil
@@ -243,11 +280,26 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						components = nil
 					end
 				else
-					if diff ~= 0 then
-						if prevglue then
-							setwidth(prevglue,getwidth(prevglue) + int(diff * factor + .5))
+					if diff ~= 0 or prevkern then
+						local glue
+						if cluster < clusterstart then
+							glue = getprev(start)
 						else
-							nn = new_kern(int(diff * factor + .5))
+							glue = stop
+							if diff == 0 then
+								diff = int(getkern(prevkern) / factor + .5)
+								prev = getprev(prevkern)
+								if prevkern == head then head = getnext(prevkern) else setnext(getprev(prevkern),getnext(prevkern)) end
+								if getnext(prevkern) then setprev(getnext(prevkern),getprev(prevkern)) end
+								free_node(prevkern)
+							end
+						end
+						if diff ~= 0 then
+							if glue and getid(glue) == glue_code and getsubtype(glue) == 13 then
+								setwidth(glue,getwidth(glue) + int(diff * factor + .5))
+							else
+								nn = new_kern(int(diff * factor + .5))
+							end
 						end
 					end
 					prevglue = nil
@@ -259,8 +311,10 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 					setnext(n,nn)
 					setprev(nn,n)
 				end
+				prevkern = nil
 
 			else
+				prevkern = nil
 				n = nodebuf[cluster]
 				if getid(n) == glyph_code then
 					n = copy_node(n)
@@ -283,6 +337,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 --					setheight(n,int(v.y_advance * factor + .5))
 					if v.x_advance ~= int(getwidth(n) / factor + .5) then
 						nn = new_kern(int(v.x_advance * factor + .5) - getwidth(n))
+						prevkern = nn
 						setnext(n,nn)
 						setprev(nn,n)
 					end
@@ -299,6 +354,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 								setwidth(prevglue,getwidth(prevglue) + kern)
 							else
 								nn = new_kern(kern)
+								prevkern = nn
 								n, nn = nn, n
 								setnext(n,nn)
 								setprev(nn,n)
@@ -308,6 +364,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 						if kern ~= 0 then
 							local tmp = nn or n
 							nn = new_kern(kern)
+							prevkern = nn
 							setprev(nn,tmp)
 							setnext(tmp,nn)
 						end
@@ -315,13 +372,18 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 				end
 				prevglue = nil
 			end
-			
 			if n and not nn then
 				nn = n
 			elseif nn and not n then
 				n = nn
 			end
 			if n then
+				if whatsits then
+					setnext(nn,whatsits)
+					setprev(whatsits,nn)
+					nn = find_node_tail(whatsits)
+				end
+				whatsits = nil
 				if prev then
 					setnext(prev,n)
 					setprev(n,prev)
@@ -368,7 +430,7 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 			text = text .. utf.char(char)
 			current = getnext(current)
 		elseif id == disc_code then
-			local pre, post, currentnext = nil, nil, getnext(current)
+			local pre, post, currentprev, currentnext = nil, nil, nil, getnext(current)
 			local c_pre, c_post, c_replace = getdisc(current)
 			local current_pre = copy_node_list(c_pre)
 			local current_post = copy_node_list(c_post)
@@ -379,11 +441,12 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 			setdisc(current,nil,nil,nil)
 			if startrlmode >= 0 then
 				if start then
+					currentprev = getprev(start)
 					pre = copy_node_list(start, current)
 					stop = getprev(current)
-					setprev(current,getprev(start))
+					setprev(current,currentprev)
 					if start == head then head = current end
-					if getprev(start) then setnext(getprev(start),current) end
+					if currentprev then setnext(currentprev,current) end
 					setnext(stop,current_pre)
 					if current_pre then setprev(current_pre,stop) end
 					current_pre = start
@@ -441,6 +504,40 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 			current_pre = harfbuzz(current_pre,font,attr,direction,n,startglue,"")
 			current_post = harfbuzz(current_post,font,attr,direction,n,"",stopglue)
 			current_replace = harfbuzz(current_replace,font,attr,direction,n,startglue,stopglue)
+			if startglue ~= "" and getid(currentprev) == glue_code then
+				local pre_head, pre_kern, replace_head, replace_kern = current_pre, 0, current_replace, 0
+				if getid(pre_head) == kern_code then
+					pre_kern = getkern(pre_head)
+				end
+				if getid(current_replace) == kern_code then
+					replace_kern = getkern(current_replace)
+				end
+				if replace_kern ~= 0 and pre_kern == replace_kern then
+					current_pre = getnext(current_pre)
+					if current_pre then setprev(current_pre,nil) end
+					free_node(pre_head)
+					current_replace = getnext(current_replace)
+					if current_replace then setprev(current_replace,nil) end
+					free_node(replace_head)
+					setwidth(currentprev,getwidth(currentprev) + replace_kern)
+				end
+			end
+			if stopglue ~= "" and getid(currentnext) == glue_code then
+				local post_tail, post_kern, replace_tail, replace_kern = find_node_tail(current_post), 0, find_node_tail(current_replace), 0
+				if getid(post_tail) == kern_code then
+					post_kern = getkern(post_tail)
+				end
+				if getid(replace_tail) == kern_code then
+					replace_kern = getkern(replace_tail)
+				end
+				if replace_kern ~= 0 and post_kern == replace_kern then
+					if post_tail == current_post then current_post = nil else setnext(getprev(post_tail),nil) end
+					free_node(post_tail)
+					if replace_tail == current_replace then current_replace = nil else setnext(getprev(replace_tail),nil) end
+					free_node(replace_tail)
+					setwidth(currentnext,getwidth(currentnext) + replace_kern)
+				end
+			end
 			startglue, stopglue = "", ""
 
 			local cpost, creplace, cpostnew, creplacenew, newcurrent = find_node_tail(current_post), find_node_tail(current_replace), nil, nil, nil
@@ -509,16 +606,29 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 --				local width = getwidth(current)
 --				if width > 0 or getsubtype(current) == 13 then
 				if getsubtype(current) == 13 then
-					if not start then
-						start = current
-						startrlmode = rlmode
+					local currentnext = getnext(current)
+					local idnext = getid(currentnext)
+					while currentnext and (idnext ~= glyph_code and idnext ~= disc_code and idnext ~= glue_code) do
+						currentnext = getnext(currentnext)
+						idnext = getid(currentnext)
 					end
-					text = text .. " "
+					if currentnext and (idnext == glyph_code and getfont(currentnext) == font and getsubtype(currentnext) < 256) then
+						if not start then
+							startglue = glue_to_hb
+						else
+							text = text .. " "
+						end
+					elseif start then
+						head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,glue_to_hb)
+						startglue, stopglue = glue_to_hb, ""
+					end
 				else
-					head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
+					head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,"")
 					startglue, stopglue = "", ""
 				end
 			end
+			current = getnext(current)
+		elseif id == whatsit_code then
 			current = getnext(current)
 		else
 			head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
@@ -547,16 +657,14 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 		end
 
 	end
-	if text ~= "" and start then
-		head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
-	end
+	head, start, text = hbnodes(head,start,current,text,font,rlmode,startglue,stopglue)
 
 	return head, true
 end
 
 
 local function initializeharfbuzz(tfmdata)
-	local features, featurestring, localopts, localshaper = tfmdata.shared.features, "", {}, ""
+	local features, featurestring, localopts, localshaper, otffeaturesdescriptions, keepfeatures = tfmdata.shared.features, "", {}, "", otffeatures.descriptions, {}
 	for k,v in next, features do
 		if k == "harfbuzz" then
 			if (type(v) == "string" and v == "yes") or (type(v) == "boolean" and v) then
@@ -566,7 +674,6 @@ local function initializeharfbuzz(tfmdata)
 			elseif type(v) == "string" then
 				localshaper = v
 			end
-		elseif k == "analyze" or k == "features" or k  == "devanagari" or k == "spacekern" or k == "checkmarks" then
 		elseif k == "mode" and v == "base" then
 --			texio.write_nl("Warning: mode of harfbuzz fonts should be node!")
 		elseif k == "mode" and v == "node" then
@@ -575,6 +682,9 @@ local function initializeharfbuzz(tfmdata)
 		elseif k == "script" and type(v) == "string" then
 			localopts.script = v
 		elseif string.len(k) == 4 then
+			if otffeaturesdescriptions and otffeaturesdescriptions[k] then
+				keepfeatures[k] = features[k]
+			end
 			if (type(v) == "string" and v == "yes") or (type(v) == "boolean" and v) then
 				featurestring = featurestring .. "+" .. tostring(k) .. ","
 			elseif (type(v) == "string" and v == "no") or (type(v) == "boolean" and not v) then
@@ -589,12 +699,6 @@ local function initializeharfbuzz(tfmdata)
 	end
 	tfmdata.shared.opts = localopts
 	tfmdata.shared.shaper = localshaper
-
-	local keepfeatures = {}
-	keepfeatures["tlig"] = features["tlig"]
-	keepfeatures["trep"] = features["trep"]
-	keepfeatures["tcom"] = features["tcom"]
-	keepfeatures["anum"] = features["anum"]
 	tfmdata.shared.features = keepfeatures
 
 	local resources        = tfmdata.resources
