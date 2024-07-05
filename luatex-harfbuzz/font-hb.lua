@@ -249,7 +249,7 @@ local function hbnodes(head,start,stop,text,font,rlmode,startglue,stopglue)
 			end
 
 			n, nn = nil, nil
-			if char == 0x0020 or char == 0x00A0 then
+			if char == 0x0020 or char == 0x00A0 or char == 0x0009 then
 				local diff = v.x_advance - spacewidth
 				if cluster >= clusterstart and cluster < clusterstop then
 					n = nodebuf[cluster]
@@ -711,7 +711,7 @@ local function initializeharfbuzz(tfmdata)
 	local characters   = tfmdata.shared.rawdata.descriptions
 	for k,v in next, characters do
 		cptochar[v.index] = k
-		if k == 0x0020 or (k == 0x00A0 and not tfmdata.shared.spacewidth) then
+		if k == 0x0020 or ( (k == 0x00A0 or k == 0x0009) and not tfmdata.shared.spacewidth) then
 			tfmdata.shared.spacewidth = v.width
 		end
 	end
