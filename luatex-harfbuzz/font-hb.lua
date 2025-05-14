@@ -111,11 +111,11 @@ local function deldisc(head)
 	return head
 end
 
-local function equalnode(n, m)
+local function equalnode(n, m, font)
 	if not n and not m then return true end
 	if not n or not m then return false end
 	if getid(n) ~= getid(m) then return false end
-	if getid(n) == glyph_code then return getfont(n) == getfont(m) and getchar(n) == getchar(m) end
+	if getid(n) == glyph_code then return getfont(n) == (font or getfont(m)) and getfont(m) == (font or getfont(n)) and getchar(n) == getchar(m) end
 	if getid(n) == glue_code then return true end
 	if getid(n) == kern_code then return getkern(n) == getkern(m) end
 	if getid(n) == disc_code then
@@ -541,7 +541,7 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 			startglue, stopglue = "", ""
 
 			local cpost, creplace, cpostnew, creplacenew, newcurrent = find_node_tail(current_post), find_node_tail(current_replace), nil, nil, nil
-			while cpost and equalnode(cpost, creplace) do
+			while cpost and equalnode(cpost, creplace, font) do
 				cpostnew = cpost
 				creplacenew = creplace
 				if creplace then creplace = getprev(creplace) end
@@ -566,7 +566,7 @@ local function harfbuzz(head,font,attr,direction,n,startglue,stopglue)
 			current_post = deldisc(current_post)		-- when luatex is able to deal with nested discretionaries this line can be removed
 
 			local cpre, creplace, cprenew, creplacenew = current_pre, current_replace, nil, nil
-			while cpre and equalnode(cpre, creplace) do
+			while cpre and equalnode(cpre, creplace, font) do
 				cprenew = cpre
 				creplacenew = creplace
 				if creplace then creplace = getnext(creplace) end
